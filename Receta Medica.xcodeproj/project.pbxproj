@@ -1,0 +1,443 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE879B94214B0DD0A37D8B7E /* Pods_Receta_Medica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BB624CE895533C6598485D0 /* Pods_Receta_Medica.framework */; };
+		CF218C3224723399009266B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF218C3124723399009266B9 /* GoogleService-Info.plist */; };
+		CFD9E4DC2471F9E400BC1C44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9E4DB2471F9E400BC1C44 /* AppDelegate.swift */; };
+		CFD9E4DE2471F9E400BC1C44 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9E4DD2471F9E400BC1C44 /* SceneDelegate.swift */; };
+		CFD9E4E02471F9E400BC1C44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9E4DF2471F9E400BC1C44 /* ViewController.swift */; };
+		CFD9E4E32471F9E400BC1C44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFD9E4E12471F9E400BC1C44 /* Main.storyboard */; };
+		CFD9E4E62471F9E500BC1C44 /* Receta_Medica.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CFD9E4E42471F9E500BC1C44 /* Receta_Medica.xcdatamodeld */; };
+		CFD9E4E82471F9E700BC1C44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFD9E4E72471F9E700BC1C44 /* Assets.xcassets */; };
+		CFD9E4EB2471F9E700BC1C44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFD9E4E92471F9E700BC1C44 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2BB624CE895533C6598485D0 /* Pods_Receta_Medica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Receta_Medica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF218C3124723399009266B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CFD9E4D82471F9E400BC1C44 /* Receta Medica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Receta Medica.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFD9E4DB2471F9E400BC1C44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CFD9E4DD2471F9E400BC1C44 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CFD9E4DF2471F9E400BC1C44 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CFD9E4E22471F9E400BC1C44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CFD9E4E52471F9E500BC1C44 /* Receta_Medica.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Receta_Medica.xcdatamodel; sourceTree = "<group>"; };
+		CFD9E4E72471F9E700BC1C44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CFD9E4EA2471F9E700BC1C44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CFD9E4EC2471F9E700BC1C44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFD9E4F22471FAA500BC1C44 /* Receta Medica.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Receta Medica.entitlements"; sourceTree = "<group>"; };
+		D89F942F9EB660D5EE8D8DEB /* Pods-Receta Medica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Receta Medica.release.xcconfig"; path = "Pods/Target Support Files/Pods-Receta Medica/Pods-Receta Medica.release.xcconfig"; sourceTree = "<group>"; };
+		FB30432EC25BCDD0E75AFCEC /* Pods-Receta Medica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Receta Medica.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Receta Medica/Pods-Receta Medica.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CFD9E4D52471F9E400BC1C44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE879B94214B0DD0A37D8B7E /* Pods_Receta_Medica.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		400724B091CDF9911C902482 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2BB624CE895533C6598485D0 /* Pods_Receta_Medica.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		942760FFF7F8BE4531927F72 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FB30432EC25BCDD0E75AFCEC /* Pods-Receta Medica.debug.xcconfig */,
+				D89F942F9EB660D5EE8D8DEB /* Pods-Receta Medica.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CFD9E4CF2471F9E400BC1C44 = {
+			isa = PBXGroup;
+			children = (
+				CFD9E4DA2471F9E400BC1C44 /* Receta Medica */,
+				CFD9E4D92471F9E400BC1C44 /* Products */,
+				942760FFF7F8BE4531927F72 /* Pods */,
+				400724B091CDF9911C902482 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CFD9E4D92471F9E400BC1C44 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CFD9E4D82471F9E400BC1C44 /* Receta Medica.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CFD9E4DA2471F9E400BC1C44 /* Receta Medica */ = {
+			isa = PBXGroup;
+			children = (
+				CFD9E4F22471FAA500BC1C44 /* Receta Medica.entitlements */,
+				CFD9E4DB2471F9E400BC1C44 /* AppDelegate.swift */,
+				CFD9E4DD2471F9E400BC1C44 /* SceneDelegate.swift */,
+				CFD9E4DF2471F9E400BC1C44 /* ViewController.swift */,
+				CFD9E4E12471F9E400BC1C44 /* Main.storyboard */,
+				CFD9E4E72471F9E700BC1C44 /* Assets.xcassets */,
+				CFD9E4E92471F9E700BC1C44 /* LaunchScreen.storyboard */,
+				CFD9E4EC2471F9E700BC1C44 /* Info.plist */,
+				CFD9E4E42471F9E500BC1C44 /* Receta_Medica.xcdatamodeld */,
+				CF218C3124723399009266B9 /* GoogleService-Info.plist */,
+			);
+			path = "Receta Medica";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CFD9E4D72471F9E400BC1C44 /* Receta Medica */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFD9E4EF2471F9E700BC1C44 /* Build configuration list for PBXNativeTarget "Receta Medica" */;
+			buildPhases = (
+				D47C47A6A38DF5F9A6BF6CA9 /* [CP] Check Pods Manifest.lock */,
+				CFD9E4D42471F9E400BC1C44 /* Sources */,
+				CFD9E4D52471F9E400BC1C44 /* Frameworks */,
+				CFD9E4D62471F9E400BC1C44 /* Resources */,
+				5171F3B4DC8D10AC2E41F06B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Receta Medica";
+			productName = "Receta Medica";
+			productReference = CFD9E4D82471F9E400BC1C44 /* Receta Medica.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CFD9E4D02471F9E400BC1C44 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Jorge Collins Gómez";
+				TargetAttributes = {
+					CFD9E4D72471F9E400BC1C44 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+				};
+			};
+			buildConfigurationList = CFD9E4D32471F9E400BC1C44 /* Build configuration list for PBXProject "Receta Medica" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CFD9E4CF2471F9E400BC1C44;
+			productRefGroup = CFD9E4D92471F9E400BC1C44 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CFD9E4D72471F9E400BC1C44 /* Receta Medica */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CFD9E4D62471F9E400BC1C44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFD9E4EB2471F9E700BC1C44 /* LaunchScreen.storyboard in Resources */,
+				CF218C3224723399009266B9 /* GoogleService-Info.plist in Resources */,
+				CFD9E4E82471F9E700BC1C44 /* Assets.xcassets in Resources */,
+				CFD9E4E32471F9E400BC1C44 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5171F3B4DC8D10AC2E41F06B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Receta Medica/Pods-Receta Medica-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Receta Medica/Pods-Receta Medica-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D47C47A6A38DF5F9A6BF6CA9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Receta Medica-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CFD9E4D42471F9E400BC1C44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFD9E4E62471F9E500BC1C44 /* Receta_Medica.xcdatamodeld in Sources */,
+				CFD9E4E02471F9E400BC1C44 /* ViewController.swift in Sources */,
+				CFD9E4DC2471F9E400BC1C44 /* AppDelegate.swift in Sources */,
+				CFD9E4DE2471F9E400BC1C44 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CFD9E4E12471F9E400BC1C44 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFD9E4E22471F9E400BC1C44 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CFD9E4E92471F9E700BC1C44 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFD9E4EA2471F9E700BC1C44 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CFD9E4ED2471F9E700BC1C44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CFD9E4EE2471F9E700BC1C44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CFD9E4F02471F9E700BC1C44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB30432EC25BCDD0E75AFCEC /* Pods-Receta Medica.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Receta Medica/Receta Medica.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D7RW4JME9U;
+				INFOPLIST_FILE = "Receta Medica/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jorge.collins.Receta-Medica";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CFD9E4F12471F9E700BC1C44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D89F942F9EB660D5EE8D8DEB /* Pods-Receta Medica.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Receta Medica/Receta Medica.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D7RW4JME9U;
+				INFOPLIST_FILE = "Receta Medica/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jorge.collins.Receta-Medica";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CFD9E4D32471F9E400BC1C44 /* Build configuration list for PBXProject "Receta Medica" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFD9E4ED2471F9E700BC1C44 /* Debug */,
+				CFD9E4EE2471F9E700BC1C44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFD9E4EF2471F9E700BC1C44 /* Build configuration list for PBXNativeTarget "Receta Medica" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFD9E4F02471F9E700BC1C44 /* Debug */,
+				CFD9E4F12471F9E700BC1C44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CFD9E4E42471F9E500BC1C44 /* Receta_Medica.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CFD9E4E52471F9E500BC1C44 /* Receta_Medica.xcdatamodel */,
+			);
+			currentVersion = CFD9E4E52471F9E500BC1C44 /* Receta_Medica.xcdatamodel */;
+			path = Receta_Medica.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = CFD9E4D02471F9E400BC1C44 /* Project object */;
+}
