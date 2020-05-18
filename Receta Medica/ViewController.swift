@@ -16,8 +16,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        logoImage.layer.cornerRadius = 50.0
-        logoImage.clipsToBounds = true
+
     }
     
     override var prefersStatusBarHidden: Bool {
