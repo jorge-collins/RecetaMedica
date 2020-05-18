@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		CE879B94214B0DD0A37D8B7E /* Pods_Receta_Medica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BB624CE895533C6598485D0 /* Pods_Receta_Medica.framework */; };
 		CF218C3224723399009266B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF218C3124723399009266B9 /* GoogleService-Info.plist */; };
+		CF7CA379247302FF00B0AE31 /* RoundTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA378247302FF00B0AE31 /* RoundTextField.swift */; };
+		CF7CA37B2473111600B0AE31 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA37A2473111600B0AE31 /* RoundButton.swift */; };
 		CFD9E4DC2471F9E400BC1C44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9E4DB2471F9E400BC1C44 /* AppDelegate.swift */; };
 		CFD9E4DE2471F9E400BC1C44 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9E4DD2471F9E400BC1C44 /* SceneDelegate.swift */; };
 		CFD9E4E02471F9E400BC1C44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9E4DF2471F9E400BC1C44 /* ViewController.swift */; };
@@ -21,6 +23,8 @@
 /* Begin PBXFileReference section */
 		2BB624CE895533C6598485D0 /* Pods_Receta_Medica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Receta_Medica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF218C3124723399009266B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CF7CA378247302FF00B0AE31 /* RoundTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundTextField.swift; sourceTree = "<group>"; };
+		CF7CA37A2473111600B0AE31 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		CFD9E4D82471F9E400BC1C44 /* Receta Medica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Receta Medica.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD9E4DB2471F9E400BC1C44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFD9E4DD2471F9E400BC1C44 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +68,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CF7CA3712473007B00B0AE31 /* IBDesignable */ = {
+			isa = PBXGroup;
+			children = (
+				CF7CA37A2473111600B0AE31 /* RoundButton.swift */,
+				CF7CA378247302FF00B0AE31 /* RoundTextField.swift */,
+			);
+			name = IBDesignable;
+			sourceTree = "<group>";
+		};
 		CFD9E4CF2471F9E400BC1C44 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +98,7 @@
 		CFD9E4DA2471F9E400BC1C44 /* Receta Medica */ = {
 			isa = PBXGroup;
 			children = (
+				CF7CA3712473007B00B0AE31 /* IBDesignable */,
 				CFD9E4F22471FAA500BC1C44 /* Receta Medica.entitlements */,
 				CFD9E4DB2471F9E400BC1C44 /* AppDelegate.swift */,
 				CFD9E4DD2471F9E400BC1C44 /* SceneDelegate.swift */,
@@ -218,8 +232,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF7CA37B2473111600B0AE31 /* RoundButton.swift in Sources */,
 				CFD9E4E62471F9E500BC1C44 /* Receta_Medica.xcdatamodeld in Sources */,
 				CFD9E4E02471F9E400BC1C44 /* ViewController.swift in Sources */,
+				CF7CA379247302FF00B0AE31 /* RoundTextField.swift in Sources */,
 				CFD9E4DC2471F9E400BC1C44 /* AppDelegate.swift in Sources */,
 				CFD9E4DE2471F9E400BC1C44 /* SceneDelegate.swift in Sources */,
 			);

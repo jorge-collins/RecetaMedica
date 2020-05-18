@@ -8,13 +8,27 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
+    
+    @IBOutlet weak var logoImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        logoImage.layer.cornerRadius = 50.0
+        logoImage.clipsToBounds = true
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 
+    // MARK: - Delegate
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
 
