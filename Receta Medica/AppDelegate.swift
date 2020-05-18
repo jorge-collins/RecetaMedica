@@ -46,6 +46,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // [END register_for_notifications]
 
+        // Recibir Push Notifications en el Simulador
+        registerForSendPushNotifications()
+        // Recibir Push Notifications en el Simulador - EOF
         return true
     }
     
@@ -224,4 +227,14 @@ extension AppDelegate : MessagingDelegate {
     print("Received data message: \(remoteMessage.appData)")
   }
   // [END ios_10_data_message]
+}
+
+
+// MARK: - Recibir Push Notifications en el Simulador
+
+func registerForSendPushNotifications() {
+        UNUserNotificationCenter.current()
+            .requestAuthorization(options: [.alert, .sound, .badge]) {(granted, error) in
+                print("Push Notification Permission granted: \(granted)")
+        }
 }
