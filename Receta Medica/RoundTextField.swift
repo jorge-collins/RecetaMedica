@@ -30,6 +30,5 @@ class RoundTextField: UITextField {
             layer.borderColor = borderColor?.cgColor
         }
     }
-    
 
 }

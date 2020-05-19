@@ -19,13 +19,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receta Médica" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dP-wh-zhQ">
-                                <rect key="frame" x="20" y="20" width="335" height="66"/>
+                                <rect key="frame" x="20" y="20" width="335" height="67"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="48"/>
                                 <color key="textColor" red="0.0" green="0.032321165042580535" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="2" height="-1"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoRecetaMedica" translatesAutoresizingMaskIntoConstraints="NO" id="cm6-Xl-eb0" customClass="RoundImage" customModule="Receta_Medica" customModuleProvider="target">
-                                <rect key="frame" x="137.5" y="94" width="100" height="100"/>
+                                <rect key="frame" x="137.5" y="95" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="FRf-NK-F98"/>
                                     <constraint firstAttribute="width" constant="100" id="LcQ-mT-puE"/>
@@ -47,7 +49,7 @@
                                         </constraints>
                                         <color key="textColor" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" textContentType="email"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="30"/>
@@ -96,6 +98,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                 <state key="normal" title="¿Olvidaste tu contraseña?"/>
+                                <connections>
+                                    <action selector="forgotPasswordPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FxJ-PN-VOL"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5x-7Y-Jpi">
                                 <rect key="frame" x="20" y="617" width="335" height="30"/>
@@ -104,7 +109,11 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="TH5-vA-FrG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
-                                <state key="normal" title="¿No tienes cuenta? Regístrate."/>
+                                <state key="normal" title="¿Necesitas una cuenta? Regístrate."/>
+                                <connections>
+                                    <action selector="accountPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zLm-pM-PEb"/>
+                                    <segue destination="Ppr-W0-YU7" kind="presentation" id="JC8-ZI-cyy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2we-5L-IRy" customClass="RoundButton" customModule="Receta_Medica" customModuleProvider="target">
                                 <rect key="frame" x="20" y="481.5" width="335" height="60"/>
@@ -121,6 +130,9 @@
                                         <real key="value" value="30"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hSg-Wd-Kxx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -149,12 +161,187 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="logoImage" destination="cm6-Xl-eb0" id="fvg-ZA-PbH"/>
+                        <outlet property="emailTextField" destination="dZR-SV-Okh" id="caS-uQ-lym"/>
+                        <outlet property="passwordTextField" destination="sch-xh-Qys" id="YyA-Fq-FMh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138.40000000000001" y="137.18140929535232"/>
+        </scene>
+        <!--Register View Controller-->
+        <scene sceneID="bPK-dV-khR">
+            <objects>
+                <viewController id="Ppr-W0-YU7" customClass="RegisterViewController" customModule="Receta_Medica" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3nB-u7-9Hr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoRecetaMedica" translatesAutoresizingMaskIntoConstraints="NO" id="6XU-1r-227">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pxg-fL-VU9">
+                                <rect key="frame" x="20" y="597" width="335" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Ox7-xL-AtS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                <state key="normal" title="¿Ya tienes cuenta? Inicia sesión."/>
+                                <connections>
+                                    <action selector="alreadyPressed:" destination="Ppr-W0-YU7" eventType="touchUpInside" id="8ag-bj-W9U"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtN-Xv-RlR" customClass="RoundButton" customModule="Receta_Medica" customModuleProvider="target">
+                                <rect key="frame" x="20" y="456" width="335" height="60"/>
+                                <color key="backgroundColor" red="0.39475947620000001" green="0.79834276439999996" blue="0.90199786420000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="PoZ-pu-pMV"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="iNi-Ey-KmH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                <state key="normal" title="Registrarme">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registra una cuenta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eku-0T-PGx">
+                                <rect key="frame" x="43" y="27" width="289" height="45"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="32"/>
+                                <color key="textColor" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="2" height="-1"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5gw-gx-t5E">
+                                <rect key="frame" x="20" y="152" width="335" height="264"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Nombre(s)" textAlignment="center" minimumFontSize="12" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="UC3-GO-8NN" customClass="RoundTextField" customModule="Receta_Medica" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="60"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="XRu-5J-6FO"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" spellCheckingType="no"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="Ppr-W0-YU7" id="oG9-cQ-C2k"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Apellido(s)" textAlignment="center" minimumFontSize="12" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="PfC-In-EKs" customClass="RoundTextField" customModule="Receta_Medica" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="68" width="335" height="60"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="xGH-Tv-XQE"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" spellCheckingType="no"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="Ppr-W0-YU7" id="9eV-Ge-9HP"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Correo electrónico" textAlignment="center" minimumFontSize="12" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="tOb-jX-71y" customClass="RoundTextField" customModule="Receta_Medica" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="136" width="335" height="60"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="Ft1-0G-loT"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" textContentType="email"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="Ppr-W0-YU7" id="9Tt-gq-6uw"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Contraseña" textAlignment="center" minimumFontSize="12" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="YLw-Gd-l0k" customClass="RoundTextField" customModule="Receta_Medica" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="204" width="335" height="60"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="mE1-wk-8Qa"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="Ppr-W0-YU7" id="tiA-hs-5ih"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="mtN-Xv-RlR" firstAttribute="top" secondItem="5gw-gx-t5E" secondAttribute="bottom" constant="40" id="8H8-ME-aP5"/>
+                            <constraint firstItem="5gw-gx-t5E" firstAttribute="leading" secondItem="OH2-YR-BBQ" secondAttribute="leading" constant="20" id="9Z4-01-jBB"/>
+                            <constraint firstItem="mtN-Xv-RlR" firstAttribute="leading" secondItem="OH2-YR-BBQ" secondAttribute="leading" constant="20" id="Ekp-ZN-Lco"/>
+                            <constraint firstItem="OH2-YR-BBQ" firstAttribute="bottom" secondItem="Pxg-fL-VU9" secondAttribute="bottom" constant="20" id="JD7-an-Jq6"/>
+                            <constraint firstItem="OH2-YR-BBQ" firstAttribute="trailing" secondItem="5gw-gx-t5E" secondAttribute="trailing" constant="20" id="JeD-0g-HbS"/>
+                            <constraint firstItem="6XU-1r-227" firstAttribute="trailing" secondItem="OH2-YR-BBQ" secondAttribute="trailing" id="Jgk-aL-PWW"/>
+                            <constraint firstItem="OH2-YR-BBQ" firstAttribute="trailing" secondItem="mtN-Xv-RlR" secondAttribute="trailing" constant="20" id="KDt-b1-Ovd"/>
+                            <constraint firstItem="5gw-gx-t5E" firstAttribute="top" secondItem="3nB-u7-9Hr" secondAttribute="top" constant="152" id="NxP-ZY-PWs"/>
+                            <constraint firstItem="OH2-YR-BBQ" firstAttribute="trailing" secondItem="Pxg-fL-VU9" secondAttribute="trailing" constant="20" id="P4Y-D0-NLC"/>
+                            <constraint firstItem="Pxg-fL-VU9" firstAttribute="leading" secondItem="OH2-YR-BBQ" secondAttribute="leading" constant="20" id="U9f-K1-ZYx"/>
+                            <constraint firstItem="5gw-gx-t5E" firstAttribute="centerX" secondItem="Eku-0T-PGx" secondAttribute="centerX" id="XRS-Nk-Xgt"/>
+                            <constraint firstItem="6XU-1r-227" firstAttribute="top" secondItem="OH2-YR-BBQ" secondAttribute="top" id="ZfM-y4-G4s"/>
+                            <constraint firstItem="5gw-gx-t5E" firstAttribute="top" secondItem="Eku-0T-PGx" secondAttribute="bottom" constant="80" id="c5V-wh-4hC"/>
+                            <constraint firstItem="6XU-1r-227" firstAttribute="leading" secondItem="OH2-YR-BBQ" secondAttribute="leading" id="haj-42-LCP"/>
+                            <constraint firstItem="6XU-1r-227" firstAttribute="bottom" secondItem="OH2-YR-BBQ" secondAttribute="bottom" id="unF-FP-dmo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OH2-YR-BBQ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QyH-w4-FAV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138" y="938"/>
         </scene>
     </scenes>
     <resources>

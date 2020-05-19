@@ -10,8 +10,12 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
-    @IBOutlet weak var logoImage: UIImageView!
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,5 +33,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
+    @IBAction func forgotPasswordPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func loginPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func accountPressed(_ sender: UIButton) {
+    }
+    
 }
 
