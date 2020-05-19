@@ -111,7 +111,6 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                 <state key="normal" title="¿Necesitas una cuenta? Regístrate."/>
                                 <connections>
-                                    <action selector="accountPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zLm-pM-PEb"/>
                                     <segue destination="Ppr-W0-YU7" kind="presentation" id="JC8-ZI-cyy"/>
                                 </connections>
                             </button>

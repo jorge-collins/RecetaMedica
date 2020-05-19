@@ -6,6 +6,9 @@ target 'Receta Medica' do
   use_frameworks!
 
   # Pods for Receta Medica
+        pod 'Firebase'
       pod 'Firebase/Core'
       pod 'Firebase/Messaging'
+        pod 'Firebase/Database'
+        pod 'Firebase/Auth'      
 end

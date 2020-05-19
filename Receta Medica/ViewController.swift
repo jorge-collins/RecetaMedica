@@ -15,8 +15,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,9 +36,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginPressed(_ sender: UIButton) {
-    }
-    
-    @IBAction func accountPressed(_ sender: UIButton) {
     }
     
 }
