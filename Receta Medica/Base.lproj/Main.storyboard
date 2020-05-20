@@ -133,10 +133,14 @@
                                     <action selector="loginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hSg-Wd-Kxx"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="8dr-bV-oDk">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="2we-5L-IRy" firstAttribute="top" secondItem="W3x-QR-mN2" secondAttribute="bottom" constant="40" id="03Q-Wg-Gxx"/>
+                            <constraint firstItem="8dr-bV-oDk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="4Ir-8V-gCk"/>
                             <constraint firstItem="LnI-5O-b3o" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4Lh-ic-cG1"/>
                             <constraint firstItem="9dP-wh-zhQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="4nV-j7-PlE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="a5x-7Y-Jpi" secondAttribute="bottom" constant="20" id="7H7-C8-uSx"/>
@@ -156,17 +160,99 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a5x-7Y-Jpi" secondAttribute="trailing" constant="20" id="k7d-xq-axG"/>
                             <constraint firstItem="cm6-Xl-eb0" firstAttribute="top" secondItem="9dP-wh-zhQ" secondAttribute="bottom" constant="8" id="rKD-DI-X7y"/>
                             <constraint firstItem="2we-5L-IRy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="xPs-Da-PyQ"/>
+                            <constraint firstItem="8dr-bV-oDk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xsb-Uy-Uoq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="8dr-bV-oDk" id="AMJ-fi-AFj"/>
                         <outlet property="emailTextField" destination="dZR-SV-Okh" id="caS-uQ-lym"/>
                         <outlet property="passwordTextField" destination="sch-xh-Qys" id="YyA-Fq-FMh"/>
+                        <segue destination="lfd-v0-9xg" kind="presentation" identifier="showMedsViewController" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="7SQ-Ip-TJS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138.40000000000001" y="137.18140929535232"/>
+        </scene>
+        <!--Meds Table View Controller-->
+        <scene sceneID="Fty-hx-66p">
+            <objects>
+                <viewController id="lfd-v0-9xg" customClass="MedsTableViewController" customModule="Receta_Medica" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vDq-ZG-DN8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="his-dY-ynQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="7W3-5w-fEa"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Mis medicinas" id="oxD-JA-HaC"/>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="z9v-TS-j2X">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MedCell" rowHeight="100" id="kwC-41-tST">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kwC-41-tST" id="TDc-tY-V6Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="R8e-NH-pv0">
+                                                    <rect key="frame" x="15" y="0.0" width="100" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WCh-Ux-sKy">
+                                                    <rect key="frame" x="123" y="11" width="36" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BodyText" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Tvd-JD-EHn">
+                                                    <rect key="frame" x="123" y="67" width="69" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="z3h-bN-2aU">
+                                                    <rect key="frame" x="123" y="39" width="57" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="z9v-TS-j2X" firstAttribute="top" secondItem="his-dY-ynQ" secondAttribute="bottom" id="0Oi-Bo-sza"/>
+                            <constraint firstItem="his-dY-ynQ" firstAttribute="top" secondItem="q2W-Fq-Rze" secondAttribute="top" id="3Od-BE-YBT"/>
+                            <constraint firstItem="z9v-TS-j2X" firstAttribute="trailing" secondItem="q2W-Fq-Rze" secondAttribute="trailing" id="Ffn-lG-PrN"/>
+                            <constraint firstItem="his-dY-ynQ" firstAttribute="leading" secondItem="q2W-Fq-Rze" secondAttribute="leading" id="MqZ-Fi-ccv"/>
+                            <constraint firstItem="z9v-TS-j2X" firstAttribute="leading" secondItem="q2W-Fq-Rze" secondAttribute="leading" id="Olx-Fs-Sdr"/>
+                            <constraint firstItem="his-dY-ynQ" firstAttribute="trailing" secondItem="q2W-Fq-Rze" secondAttribute="trailing" id="UQl-qC-5s1"/>
+                            <constraint firstItem="z9v-TS-j2X" firstAttribute="bottom" secondItem="q2W-Fq-Rze" secondAttribute="bottom" id="uLC-aa-zg8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="q2W-Fq-Rze"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="z9v-TS-j2X" id="Coo-8T-WPJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0T8-aE-Egb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1088.8" y="132.68365817091455"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="bPK-dV-khR">
@@ -344,6 +430,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="1" width="200" height="200"/>
         <image name="logoRecetaMedica" width="1238" height="1238"/>
     </resources>
 </document>

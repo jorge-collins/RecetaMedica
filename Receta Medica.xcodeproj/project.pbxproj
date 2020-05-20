@@ -13,6 +13,12 @@
 		CF7CA37B2473111600B0AE31 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA37A2473111600B0AE31 /* RoundButton.swift */; };
 		CF7CA37D2473189C00B0AE31 /* RoundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA37C2473189C00B0AE31 /* RoundImage.swift */; };
 		CF7CA37F24738E6A00B0AE31 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA37E24738E6A00B0AE31 /* RegisterViewController.swift */; };
+		CF7CA3812474D48400B0AE31 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA3802474D48400B0AE31 /* AuthService.swift */; };
+		CF7CA3832474D4DD00B0AE31 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA3822474D4DD00B0AE31 /* DatabaseService.swift */; };
+		CF7CA3852474EB4A00B0AE31 /* MedsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA3842474EB4A00B0AE31 /* MedsTableViewController.swift */; };
+		CF7CA3872474ECA600B0AE31 /* MedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA3862474ECA600B0AE31 /* MedTableViewCell.swift */; };
+		CF7CA3892474ECF900B0AE31 /* Med.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA3882474ECF800B0AE31 /* Med.swift */; };
+		CF7CA38B2474F89100B0AE31 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA38A2474F89100B0AE31 /* User.swift */; };
 		CFD9E4DC2471F9E400BC1C44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9E4DB2471F9E400BC1C44 /* AppDelegate.swift */; };
 		CFD9E4DE2471F9E400BC1C44 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9E4DD2471F9E400BC1C44 /* SceneDelegate.swift */; };
 		CFD9E4E02471F9E400BC1C44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9E4DF2471F9E400BC1C44 /* ViewController.swift */; };
@@ -29,6 +35,12 @@
 		CF7CA37A2473111600B0AE31 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		CF7CA37C2473189C00B0AE31 /* RoundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImage.swift; sourceTree = "<group>"; };
 		CF7CA37E24738E6A00B0AE31 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		CF7CA3802474D48400B0AE31 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		CF7CA3822474D4DD00B0AE31 /* DatabaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		CF7CA3842474EB4A00B0AE31 /* MedsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedsTableViewController.swift; sourceTree = "<group>"; };
+		CF7CA3862474ECA600B0AE31 /* MedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedTableViewCell.swift; sourceTree = "<group>"; };
+		CF7CA3882474ECF800B0AE31 /* Med.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Med.swift; sourceTree = "<group>"; };
+		CF7CA38A2474F89100B0AE31 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CFD9E4D82471F9E400BC1C44 /* Receta Medica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Receta Medica.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD9E4DB2471F9E400BC1C44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFD9E4DD2471F9E400BC1C44 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,12 +121,18 @@
 				CFD9E4DD2471F9E400BC1C44 /* SceneDelegate.swift */,
 				CFD9E4DF2471F9E400BC1C44 /* ViewController.swift */,
 				CF7CA37E24738E6A00B0AE31 /* RegisterViewController.swift */,
+				CF7CA3842474EB4A00B0AE31 /* MedsTableViewController.swift */,
+				CF7CA3862474ECA600B0AE31 /* MedTableViewCell.swift */,
 				CFD9E4E12471F9E400BC1C44 /* Main.storyboard */,
 				CFD9E4E72471F9E700BC1C44 /* Assets.xcassets */,
 				CFD9E4E92471F9E700BC1C44 /* LaunchScreen.storyboard */,
 				CFD9E4EC2471F9E700BC1C44 /* Info.plist */,
 				CFD9E4E42471F9E500BC1C44 /* Receta_Medica.xcdatamodeld */,
 				CF218C3124723399009266B9 /* GoogleService-Info.plist */,
+				CF7CA3822474D4DD00B0AE31 /* DatabaseService.swift */,
+				CF7CA3802474D48400B0AE31 /* AuthService.swift */,
+				CF7CA3882474ECF800B0AE31 /* Med.swift */,
+				CF7CA38A2474F89100B0AE31 /* User.swift */,
 			);
 			path = "Receta Medica";
 			sourceTree = "<group>";
@@ -245,8 +263,14 @@
 				CF7CA37B2473111600B0AE31 /* RoundButton.swift in Sources */,
 				CFD9E4E62471F9E500BC1C44 /* Receta_Medica.xcdatamodeld in Sources */,
 				CFD9E4E02471F9E400BC1C44 /* ViewController.swift in Sources */,
+				CF7CA3812474D48400B0AE31 /* AuthService.swift in Sources */,
+				CF7CA3892474ECF900B0AE31 /* Med.swift in Sources */,
 				CF7CA37F24738E6A00B0AE31 /* RegisterViewController.swift in Sources */,
+				CF7CA38B2474F89100B0AE31 /* User.swift in Sources */,
 				CF7CA379247302FF00B0AE31 /* RoundTextField.swift in Sources */,
+				CF7CA3872474ECA600B0AE31 /* MedTableViewCell.swift in Sources */,
+				CF7CA3852474EB4A00B0AE31 /* MedsTableViewController.swift in Sources */,
+				CF7CA3832474D4DD00B0AE31 /* DatabaseService.swift in Sources */,
 				CFD9E4DC2471F9E400BC1C44 /* AppDelegate.swift in Sources */,
 				CF7CA37D2473189C00B0AE31 /* RoundImage.swift in Sources */,
 				CFD9E4DE2471F9E400BC1C44 /* SceneDelegate.swift in Sources */,
