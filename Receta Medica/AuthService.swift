@@ -58,53 +58,55 @@ class AuthService {
             if let error = (error as NSError?) {
                 // Revisamos cual codigo de error es
                 if let errorCode = AuthErrorCode(rawValue: error.code) {
+                    print(">> errorCode: \(error.description)")
+                    
+                    
+                    
                     // Comprobamos que el error sea que no existe el usuario
-                    if errorCode == AuthErrorCode.userNotFound {
+//                    if errorCode == AuthErrorCode.userNotFound {
                         
                         
                         
-                        // Intentamos crear el usuario
-                        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-                            // Si existe error al crear al usuario
-                            if let error = (error as NSError?) {
-                                // Mostrar el error al usuario
-                                self.handleFirebaseError(error: error, onComplete: onComplete)
-                            } else {
-                                // Comprobamos que se haya creado el usuario
-                                if user?.user.uid != nil {
-                                    
-                                    // Guardamos el usuario
-                                    DatabaseService.shared.saveUser(uid: (user?.user.uid)!, email: email, password: password, firstName: "John", lastName: "Doe") 
-                                    
-                                    // Entonces intentamos hacer login
-                                    Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-                                        // Si existe algun error (no deberia ya que para llegar aqui el usuario no existia)
-                                        if let error = (error as NSError?) {
-                                            // Mostrar el error al usuario
-                                            self.handleFirebaseError(error: error, onComplete: onComplete)
-                                        } else {
-                                            // El login ha sido realizado con exito
-                                            onComplete?(nil, user!)
-                                        }
-                                    }
-                                }
-                            }
-                        }
+//                        // Intentamos crear el usuario
+//                        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+//                            // Si existe error al crear al usuario
+//                            if let error = (error as NSError?) {
+//                                // Mostrar el error al usuario
+//                                self.handleFirebaseError(error: error, onComplete: onComplete)
+//                            } else {
+//                                // Comprobamos que se haya creado el usuario
+//                                if user?.user.uid != nil {
+//
+//                                    // Guardamos el usuario
+//                                    DatabaseService.shared.saveUser(uid: (user?.user.uid)!, email: email, password: password, firstName: "John", lastName: "Doe")
+//
+//                                    // Entonces intentamos hacer login
+//                                    Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+//                                        // Si existe algun error (no deberia ya que para llegar aqui el usuario no existia)
+//                                        if let error = (error as NSError?) {
+//                                            // Mostrar el error al usuario
+//                                            self.handleFirebaseError(error: error, onComplete: onComplete)
+//                                        } else {
+//                                            // El login ha sido realizado con exito
+//                                            onComplete?(nil, user!)
+//                                        }
+//                                    }
+//                                }
+//                            }
+//                        }
                         
                         
                         
-                    } else {
+//                    } else {
                         // No es ese tipo de error, revisamos cual es entonces
                         self.handleFirebaseError(error: error, onComplete: onComplete)
-                    }
+//                    }
                 }
             } else {
                 // No hubo error, hay que presentar el siguiente ViewController
                 onComplete?(nil, user!)
             }
             // ...
-            
-            
         }
     }
     
@@ -112,11 +114,11 @@ class AuthService {
         print("--Error: \(error.debugDescription)")
         if let errorCode = AuthErrorCode(rawValue: error.code) {
             switch errorCode {
-            case .invalidEmail:
-                onComplete?("Email incorrecto", nil)
-                break
-            case .wrongPassword, .invalidCredential, .accountExistsWithDifferentCredential:
-                onComplete?("Password incorrecto", nil)
+//            case .invalidEmail:
+//                onComplete?("Email incorrecto", nil)
+//                break
+            case .invalidEmail, .wrongPassword, .invalidCredential, .accountExistsWithDifferentCredential:
+                onComplete?("Credenciales incorrectas, por favor verifica tus datos.", nil)
                 break
             case .userDisabled:
                 onComplete?("Este usuario se encuentra deshabilitado", nil)
@@ -127,6 +129,8 @@ class AuthService {
             case .weakPassword:
                 onComplete?("Password demasiado débil", nil)
                 break
+            case .userNotFound:
+                onComplete?("El usuario no existe, por favor crea una cuenta.", nil)
             default:
                 onComplete?("Hubo un error al entrar, intenta nuevamente", nil)
                 print("")

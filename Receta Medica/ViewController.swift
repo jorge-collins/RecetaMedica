@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
        
-    private var userID = String()
+//    private var userID = String()
     private var user : User!
     
         
@@ -27,6 +27,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         emailTextField.text = "jorge.collins@corosoftware.com"
         passwordTextField.text = "collins"
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        guard Auth.auth().currentUser != nil else {
+//            performSegue(withIdentifier: "showMedsViewController", sender: nil)
+//            return
+//        }
+//    }
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -57,45 +64,79 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 
                 guard message == nil else {
                     
-                    let alert = UIAlertController(title: "Hubo un error", message: message, preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Hubo un problema", message: message, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                     self.present(alert, animated: true)
                     return
                 }
-                
-                /// "Popup" de bienvenida
-                let alert = UIAlertController(title: "¡Bienvenido!", message: "\(email)", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
-                    // Aqui se le manda la info al siguiente view despues de consultar en la DB
-                    DatabaseService.shared.userRef.observeSingleEvent(of: .value) { (snapshot) in
+
+                // Version 2 de como presentar un alert y despues del ok, hacer el segue: La consulta envuelve al Alert
+                DatabaseService.shared.userRef.observeSingleEvent(of: .value) { (snapshot) in
 //                        print("snapshot: \(snapshot)")
-                        if let users = snapshot.value as? Dictionary<String, AnyObject> {
-                            for (key, value) in users {
+                    if let users = snapshot.value as? Dictionary<String, AnyObject> {
+                        for (key, value) in users {
 //                                print("key: \(key)")
-                                if let profile = value as? Dictionary<String, AnyObject> {
+                            if let profile = value as? Dictionary<String, AnyObject> {
 //                                    print("profile: \(profile)")
-                                    if let dict = profile["profile"] as? Dictionary<String, AnyObject> {
+                                if let dict = profile["profile"] as? Dictionary<String, AnyObject> {
 //                                        print("dict: \(dict)")
-                                        if let firstName = dict["firstName"] as? String, let lastName = dict["lastName"] as? String,
-                                           let email     = dict["email"] as? String,     let password = dict["password"] as? String {
-                                            
-                                            let userid = key
-                                            let user = User(userid: userid, email: email, firstName: firstName, lastName: lastName, password: password)
-//                                            print("--- user: \(user)")
-                                            self.userID = user.userid
-                                            self.user = user
+                                    if let firstName = dict["firstName"] as? String, let lastName = dict["lastName"] as? String,
+                                       let email     = dict["email"] as? String,     let password = dict["password"] as? String {
+                                        
+                                        let userid = key
+                                        self.user = User(userid: userid, email: email, firstName: firstName, lastName: lastName, password: password)
+                                        
+                                        let alert = UIAlertController(title: "¡Hola \(self.user.firstName)!", message: "Has ingresado satisfactoriamente", preferredStyle: .alert)
+                                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
                                             self.performSegue(withIdentifier: "showMedsViewController", sender: self)
-                                        }
+
+                                        }))
+                                        self.present(alert, animated: true)
+                                        
                                     }
                                 }
                             }
                         }
                     }
-                }))
-                self.present(alert, animated: true)
+                }
+                
+/* Version original de como presentar un alert y despues del ok, hacer el segue: El Alert envuelve a la consulta en la DB
+                 
+                /// "Popup" de bienvenida
+//                let alert = UIAlertController(title: "¡Bienvenido!", message: "\(email)", preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
+//                    // Aqui se le manda la info al siguiente view despues de consultar en la DB
+//                    DatabaseService.shared.userRef.observeSingleEvent(of: .value) { (snapshot) in
+////                        print("snapshot: \(snapshot)")
+//                        if let users = snapshot.value as? Dictionary<String, AnyObject> {
+//                            for (key, value) in users {
+////                                print("key: \(key)")
+//                                if let profile = value as? Dictionary<String, AnyObject> {
+////                                    print("profile: \(profile)")
+//                                    if let dict = profile["profile"] as? Dictionary<String, AnyObject> {
+////                                        print("dict: \(dict)")
+//                                        if let firstName = dict["firstName"] as? String, let lastName = dict["lastName"] as? String,
+//                                           let email     = dict["email"] as? String,     let password = dict["password"] as? String {
+//
+//                                            let userid = key
+//                                            self.user = User(userid: userid, email: email, firstName: firstName, lastName: lastName, password: password)
+////                                            print("--- user: \(user)")
+////                                            self.userID = user.userid
+////                                            self.user = user
+//                                            self.performSegue(withIdentifier: "showMedsViewController", sender: self)
+//                                        }
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+//                }))
+//                self.present(alert, animated: true)
+                */
+            
             })
         } else {
-            let alert = UIAlertController(title: "Usuario y/o contraseña incorrectos", message: "Por favor verifica los datos de acceso", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Usuario y/o contraseña incorrectos", message: "Por favor verifíca los datos de acceso.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             present(alert, animated: true, completion: nil)
         }
@@ -110,8 +151,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
 //            print("in prepare for segue.identifier, userID: \(userID)")
             if let destinationVC = segue.destination as? MedsTableViewController {
 //                print("in prepare for segue")
-                destinationVC.userID = self.userID
-                print("destinationVC.userID: \(destinationVC.userID)")
+//                destinationVC.userID = self.userID
+//                print("destinationVC.userID: \(destinationVC.userID)")
+                destinationVC.user = self.user
             }
         }
     }

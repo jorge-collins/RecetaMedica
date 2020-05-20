@@ -18,8 +18,8 @@ class MedsTableViewController: UIViewController, UITableViewDataSource, UITableV
 //    @IBOutlet weak var logOutButton: UIBarButtonItem!
     
     var userID : String = ""
+    var user : User!
     
-    private var user = Auth.auth().currentUser
     private var meds = [Med]()
 
     override func viewDidLoad() {
@@ -27,14 +27,14 @@ class MedsTableViewController: UIViewController, UITableViewDataSource, UITableV
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        print("-- MedsTableView userID: \(userID)")
+        print("-- MedsTableView user: \(user!)")
         
         DatabaseService.shared.medsRef.observeSingleEvent(of: .value) { (snapshot:DataSnapshot) in
             // -- Recuperamos la info del snapshot
             if let meds = snapshot.value as? Dictionary<String, AnyObject> {
                 for (key, value) in meds { //*
                     if let dict = value as? Dictionary<String, AnyObject> { //**
-                        if self.user?.uid == dict["userid"] as? String { //***
+                        if self.user.userid == dict["userid"] as? String { //***
                             
                             if let name = dict["name"] as? String,
                                 let userid = dict["userid"] as? String,
@@ -71,13 +71,7 @@ class MedsTableViewController: UIViewController, UITableViewDataSource, UITableV
         // Notifications EOF
         
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        guard Auth.auth().currentUser != nil else {
-            performSegue(withIdentifier: "ShowLoginViewController", sender: nil)
-            return
-        }
-    }
+
 
     // MARK: - Table view data source
 
