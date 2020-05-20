@@ -189,7 +189,7 @@
                                     <constraint firstAttribute="height" constant="44" id="7W3-5w-fEa"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Mis medicinas" id="oxD-JA-HaC">
+                                    <navigationItem id="oxD-JA-HaC">
                                         <barButtonItem key="leftBarButtonItem" image="arrow.left" catalog="system" id="EKR-h6-TRR">
                                             <connections>
                                                 <action selector="backPressed:" destination="lfd-v0-9xg" id="ztK-y6-T7I"/>
@@ -291,6 +291,9 @@
                                         <real key="value" value="30"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="siginPressed:" destination="Ppr-W0-YU7" eventType="touchUpInside" id="chu-0J-cPm"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registra una cuenta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eku-0T-PGx">
                                 <rect key="frame" x="43" y="27" width="289" height="45"/>
@@ -401,11 +404,16 @@
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="TIH-z5-9OB">
+                                <rect key="frame" x="169" y="305" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="mtN-Xv-RlR" firstAttribute="top" secondItem="5gw-gx-t5E" secondAttribute="bottom" constant="40" id="8H8-ME-aP5"/>
                             <constraint firstItem="5gw-gx-t5E" firstAttribute="leading" secondItem="OH2-YR-BBQ" secondAttribute="leading" constant="20" id="9Z4-01-jBB"/>
+                            <constraint firstItem="TIH-z5-9OB" firstAttribute="centerY" secondItem="3nB-u7-9Hr" secondAttribute="centerY" id="B0F-OT-qh7"/>
+                            <constraint firstItem="TIH-z5-9OB" firstAttribute="centerX" secondItem="3nB-u7-9Hr" secondAttribute="centerX" id="DEw-yo-UZG"/>
                             <constraint firstItem="mtN-Xv-RlR" firstAttribute="leading" secondItem="OH2-YR-BBQ" secondAttribute="leading" constant="20" id="Ekp-ZN-Lco"/>
                             <constraint firstItem="OH2-YR-BBQ" firstAttribute="bottom" secondItem="Pxg-fL-VU9" secondAttribute="bottom" constant="20" id="JD7-an-Jq6"/>
                             <constraint firstItem="OH2-YR-BBQ" firstAttribute="trailing" secondItem="5gw-gx-t5E" secondAttribute="trailing" constant="20" id="JeD-0g-HbS"/>
@@ -422,6 +430,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OH2-YR-BBQ"/>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="TIH-z5-9OB" id="8ik-yb-GN4"/>
+                        <outlet property="emailTextField" destination="tOb-jX-71y" id="pl9-Lu-oAh"/>
+                        <outlet property="firstNameTextField" destination="UC3-GO-8NN" id="9U6-QO-CMv"/>
+                        <outlet property="lastNameTextField" destination="PfC-In-EKs" id="2Py-NS-w4g"/>
+                        <outlet property="passwordTextField" destination="YLw-Gd-l0k" id="mvv-0M-yfM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QyH-w4-FAV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

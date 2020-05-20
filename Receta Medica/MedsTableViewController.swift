@@ -13,11 +13,9 @@ import FirebaseAuth
 
 
 class MedsTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
+        
     @IBOutlet weak var tableView: UITableView!
-//    @IBOutlet weak var logOutButton: UIBarButtonItem!
     
-    var userID : String = ""
     var user : User!
     
     private var meds = [Med]()
@@ -26,9 +24,9 @@ class MedsTableViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
+               
         print("-- MedsTableView user: \(user!)")
-        
+                
         DatabaseService.shared.medsRef.observeSingleEvent(of: .value) { (snapshot:DataSnapshot) in
             // -- Recuperamos la info del snapshot
             if let meds = snapshot.value as? Dictionary<String, AnyObject> {
@@ -58,7 +56,6 @@ class MedsTableViewController: UIViewController, UITableViewDataSource, UITableV
             }
             //--
         }
-        
     }
 
 
@@ -66,6 +63,14 @@ class MedsTableViewController: UIViewController, UITableViewDataSource, UITableV
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Mis medicinas (\(self.user.firstName) \(self.user.lastName))"
+        }
+        return "0"
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

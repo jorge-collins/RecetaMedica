@@ -39,7 +39,7 @@ class DatabaseService {
             "firstName": firstName as AnyObject,
             "lastName": lastName as AnyObject]
         
-        self.mainRef.child(FIR_CHD_USERS).child(uid).setValue(profile)
+        self.mainRef.child(FIR_CHD_USERS).child(uid).child("profile").setValue(profile)
     }
         
     func saveMed(userUID: String, type: String, quantity: String, periodicityInHours: String, name: String, mediaURL: String, firstDose: String, daysToTake: String, alerts: Dictionary<String, AnyObject>) {

@@ -22,17 +22,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         activityIndicator.isHidden = true
-        /// Inicializaciones para testing
         
-//        // 480uMmolZ5duweP0824wMIVKfxh1 : "USER" con 3 meds
-//        emailTextField.text = "user_testpwd@corosoftware.com"
-//        passwordTextField.text = "testpwd"
+        /// Inicializaciones para testing
+        // 480uMmolZ5duweP0824wMIVKfxh1 : "USER" con 3 meds
+        emailTextField.text = "user_testpwd@corosoftware.com"
+        passwordTextField.text = "testpwd"
 //        // 887zsjnW8paUo9GFmdH5g4TtXAB3 : "John" con 3 meds
 //        emailTextField.text = "j_collins@gmail.com"
 //        passwordTextField.text = "collins"
-        // SaRfcJGmOfXio1BmIxPvAco6oXz2 : "Jorge" con 2 meds
-        emailTextField.text = "user2_passwd2@corosoftware.com"
-        passwordTextField.text = "passwd2"
+//        // SaRfcJGmOfXio1BmIxPvAco6oXz2 : "Jorge" con 2 meds
+//        emailTextField.text = "user2_passwd2@corosoftware.com"
+//        passwordTextField.text = "passwd2"
+        // KiTn6dCxO8QbHz9VAPUkgWf9KNe2 : "J" con 0 meds
+//        emailTextField.text = "user.passw0rd@corosoftware.com"
+//        passwordTextField.text = "passw0rd"
     }
     
     
@@ -60,18 +63,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             AuthService.shared.login(email: email, password: pass, onComplete: { (message, data) in
                 
-                self.activityIndicator.stopAnimating()
-                self.activityIndicator.isHidden = true
-                
                 guard message == nil else {
                     
                     let alert = UIAlertController(title: "Hubo un problema", message: message, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                     self.present(alert, animated: true)
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.isHidden = true
                     return
                 }
 
-                // Version 2 de como presentar un alert y despues del ok, hacer el segue: La consulta envuelve al Alert
+                // Recuperamos de la DB los datos del usuario autorizado
                 DatabaseService.shared.userRef.observeSingleEvent(of: .value) { (snapshot) in
 //                        print("snapshot: \(snapshot)")
                     if let users = snapshot.value as? Dictionary<String, AnyObject> {
@@ -88,15 +90,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
                                         if email == emailTo {
                                             
                                             let userid = key
+                                            // le asignamos los datos recuperados al usuario que se enviara en el segue
                                             self.user = User(userid: userid, email: emailTo, firstName: firstName, lastName: lastName, password: password)
-                                            
-                                            let alert = UIAlertController(title: "¡Hola \(self.user.firstName)!", message: "Has ingresado satisfactoriamente", preferredStyle: .alert)
-                                            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
-                                                
-                                                self.performSegue(withIdentifier: "showMedsViewController", sender: self)
-
-                                            }))
-                                            self.present(alert, animated: true)
+                                            // Restablecemos los elementos de la vista
+                                            self.activityIndicator.stopAnimating()
+                                            self.activityIndicator.isHidden = true
+                                            self.passwordTextField.text = ""
+                                            // Ejecutamos el segue
+                                            self.performSegue(withIdentifier: "showMedsViewController", sender: self)
                                         }
                                     }
                                 }
@@ -108,7 +109,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             })
         } else {
-            let alert = UIAlertController(title: "Usuario y/o contraseña incorrectos", message: "Por favor verifíca los datos de acceso.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Datos incompletos", message: "Por favor ingrresa tu correo y contraseña.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             present(alert, animated: true, completion: nil)
         }
