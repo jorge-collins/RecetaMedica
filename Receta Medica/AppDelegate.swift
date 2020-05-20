@@ -166,6 +166,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+// MARK: - Push Notifications
 
 // [START ios_10_message_handling]
 @available(iOS 10, *)

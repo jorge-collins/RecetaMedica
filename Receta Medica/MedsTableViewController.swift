@@ -59,17 +59,6 @@ class MedsTableViewController: UIViewController, UITableViewDataSource, UITableV
             //--
         }
         
-        // Notifications
-        InstanceID.instanceID().instanceID { (result, error) in
-          if let error = error {
-            print("Error fetching remote instance ID: \(error)")
-          } else if let result = result {
-            print("Remote instance ID token: \(result.token)")
-//            self.instanceIDTokenMessage.text  = "Remote InstanceID token: \(result.token)"
-          }
-        }
-        // Notifications EOF
-        
     }
 
 
@@ -146,7 +135,7 @@ class MedsTableViewController: UIViewController, UITableViewDataSource, UITableV
         */
     }
     
-    @IBAction func logOutPressed(_ sender: UIBarButtonItem) {
-        print("logOutPressed")
+    @IBAction func backPressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
 }
