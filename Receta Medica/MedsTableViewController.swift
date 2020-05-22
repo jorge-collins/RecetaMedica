@@ -68,7 +68,7 @@ class MedsTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return "Mis medicinas: \(self.user.firstName) \(self.user.lastName)"
+            return "Mis medicinas – \(self.user.firstName) \(self.user.lastName)"
         }
         return "0"
     }
@@ -86,7 +86,7 @@ class MedsTableViewController: UIViewController, UITableViewDataSource, UITableV
         
         // Aqui debo generar la forma de mostrar el tiempo mas amigablemente o mostrar la siguiente dosis
         
-        cell.detailTextLabel?.text = "\(med.quantity) every \(med.periodicityInHours) time."
+        cell.detailTextLabel?.text = "\(med.quantity) cada \(med.periodicityInHours) horas."
         return cell
     }
     
@@ -118,8 +118,8 @@ class MedsTableViewController: UIViewController, UITableViewDataSource, UITableV
         if segue.identifier == "showMedDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let selectedMed = self.meds[indexPath.row]
-//                let destinationViewController = segue.destination as! DetailViewController
-//                destinationViewController.med = selectedMed
+                let destinationViewController = segue.destination as! DetailViewController
+                destinationViewController.med = selectedMed
                 print("prepare for segue: \(selectedMed)")
             }
         }

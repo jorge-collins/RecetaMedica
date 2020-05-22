@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CE879B94214B0DD0A37D8B7E /* Pods_Receta_Medica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BB624CE895533C6598485D0 /* Pods_Receta_Medica.framework */; };
+		CF05EB7E24776E5A009A1AAC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF05EB7D24776E5A009A1AAC /* DetailViewController.swift */; };
+		CF05EB8024776EC0009A1AAC /* DetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF05EB7F24776EC0009A1AAC /* DetailViewCell.swift */; };
 		CF218C3224723399009266B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF218C3124723399009266B9 /* GoogleService-Info.plist */; };
 		CF7CA379247302FF00B0AE31 /* RoundTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA378247302FF00B0AE31 /* RoundTextField.swift */; };
 		CF7CA37B2473111600B0AE31 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA37A2473111600B0AE31 /* RoundButton.swift */; };
@@ -33,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		2BB624CE895533C6598485D0 /* Pods_Receta_Medica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Receta_Medica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF05EB7D24776E5A009A1AAC /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		CF05EB7F24776EC0009A1AAC /* DetailViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewCell.swift; sourceTree = "<group>"; };
 		CF218C3124723399009266B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CF7CA378247302FF00B0AE31 /* RoundTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundTextField.swift; sourceTree = "<group>"; };
 		CF7CA37A2473111600B0AE31 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 				CF7CA3862474ECA600B0AE31 /* MedTableViewCell.swift */,
 				CF7CA39424766AAC00B0AE31 /* AddMedTableViewController.swift */,
 				CF7CA39624766AD100B0AE31 /* SelectIconViewController.swift */,
+				CF05EB7D24776E5A009A1AAC /* DetailViewController.swift */,
+				CF05EB7F24776EC0009A1AAC /* DetailViewCell.swift */,
 				CFD9E4E12471F9E400BC1C44 /* Main.storyboard */,
 				CFD9E4E72471F9E700BC1C44 /* Assets.xcassets */,
 				CFD9E4E92471F9E700BC1C44 /* LaunchScreen.storyboard */,
@@ -278,6 +284,7 @@
 				CF7CA3892474ECF900B0AE31 /* Med.swift in Sources */,
 				CF7CA37F24738E6A00B0AE31 /* RegisterViewController.swift in Sources */,
 				CF7CA38B2474F89100B0AE31 /* User.swift in Sources */,
+				CF05EB7E24776E5A009A1AAC /* DetailViewController.swift in Sources */,
 				CF7CA379247302FF00B0AE31 /* RoundTextField.swift in Sources */,
 				CF7CA3872474ECA600B0AE31 /* MedTableViewCell.swift in Sources */,
 				CF7CA3852474EB4A00B0AE31 /* MedsTableViewController.swift in Sources */,
@@ -285,6 +292,7 @@
 				CF7CA38F24765A1C00B0AE31 /* Parsing.swift in Sources */,
 				CFD9E4DC2471F9E400BC1C44 /* AppDelegate.swift in Sources */,
 				CF7CA37D2473189C00B0AE31 /* RoundImage.swift in Sources */,
+				CF05EB8024776EC0009A1AAC /* DetailViewCell.swift in Sources */,
 				CFD9E4DE2471F9E400BC1C44 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -195,7 +195,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     print(userInfo)
 
     // Change this to your preferred presentation option
-    completionHandler([])
+    completionHandler(.alert) // De esta forma presenta la Push dentro de la App
   }
 
   func userNotificationCenter(_ center: UNUserNotificationCenter,

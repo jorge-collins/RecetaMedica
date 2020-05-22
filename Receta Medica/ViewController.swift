@@ -36,6 +36,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // KiTn6dCxO8QbHz9VAPUkgWf9KNe2 : "J" con 0 meds
 //        emailTextField.text = "user.passw0rd@corosoftware.com"
 //        passwordTextField.text = "passw0rd"
+        
+        // Local Notification
+        let content = UNMutableNotificationContent()
+        content.title = "Feed the cat2"
+        content.subtitle = "It looks hungry"
+        content.sound = UNNotificationSound.default
+
+        // show this notification five seconds from now
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+
+        // choose a random identifier
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+        // add our notification request
+        UNUserNotificationCenter.current().add(request)
+        // Local Notification EOF
     }
     
     
