@@ -19,6 +19,9 @@
 		CF7CA3872474ECA600B0AE31 /* MedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA3862474ECA600B0AE31 /* MedTableViewCell.swift */; };
 		CF7CA3892474ECF900B0AE31 /* Med.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA3882474ECF800B0AE31 /* Med.swift */; };
 		CF7CA38B2474F89100B0AE31 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA38A2474F89100B0AE31 /* User.swift */; };
+		CF7CA38F24765A1C00B0AE31 /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA38E24765A1C00B0AE31 /* Parsing.swift */; };
+		CF7CA39524766AAC00B0AE31 /* AddMedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA39424766AAC00B0AE31 /* AddMedTableViewController.swift */; };
+		CF7CA39724766AD100B0AE31 /* SelectIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA39624766AD100B0AE31 /* SelectIconViewController.swift */; };
 		CFD9E4DC2471F9E400BC1C44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9E4DB2471F9E400BC1C44 /* AppDelegate.swift */; };
 		CFD9E4DE2471F9E400BC1C44 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9E4DD2471F9E400BC1C44 /* SceneDelegate.swift */; };
 		CFD9E4E02471F9E400BC1C44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9E4DF2471F9E400BC1C44 /* ViewController.swift */; };
@@ -41,6 +44,9 @@
 		CF7CA3862474ECA600B0AE31 /* MedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedTableViewCell.swift; sourceTree = "<group>"; };
 		CF7CA3882474ECF800B0AE31 /* Med.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Med.swift; sourceTree = "<group>"; };
 		CF7CA38A2474F89100B0AE31 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CF7CA38E24765A1C00B0AE31 /* Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parsing.swift; sourceTree = "<group>"; };
+		CF7CA39424766AAC00B0AE31 /* AddMedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMedTableViewController.swift; sourceTree = "<group>"; };
+		CF7CA39624766AD100B0AE31 /* SelectIconViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectIconViewController.swift; sourceTree = "<group>"; };
 		CFD9E4D82471F9E400BC1C44 /* Receta Medica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Receta Medica.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD9E4DB2471F9E400BC1C44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFD9E4DD2471F9E400BC1C44 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,14 +121,16 @@
 		CFD9E4DA2471F9E400BC1C44 /* Receta Medica */ = {
 			isa = PBXGroup;
 			children = (
-				CF7CA3712473007B00B0AE31 /* IBDesignable */,
 				CFD9E4F22471FAA500BC1C44 /* Receta Medica.entitlements */,
+				CF7CA3712473007B00B0AE31 /* IBDesignable */,
 				CFD9E4DB2471F9E400BC1C44 /* AppDelegate.swift */,
 				CFD9E4DD2471F9E400BC1C44 /* SceneDelegate.swift */,
 				CFD9E4DF2471F9E400BC1C44 /* ViewController.swift */,
 				CF7CA37E24738E6A00B0AE31 /* RegisterViewController.swift */,
 				CF7CA3842474EB4A00B0AE31 /* MedsTableViewController.swift */,
 				CF7CA3862474ECA600B0AE31 /* MedTableViewCell.swift */,
+				CF7CA39424766AAC00B0AE31 /* AddMedTableViewController.swift */,
+				CF7CA39624766AD100B0AE31 /* SelectIconViewController.swift */,
 				CFD9E4E12471F9E400BC1C44 /* Main.storyboard */,
 				CFD9E4E72471F9E700BC1C44 /* Assets.xcassets */,
 				CFD9E4E92471F9E700BC1C44 /* LaunchScreen.storyboard */,
@@ -133,6 +141,7 @@
 				CF7CA3802474D48400B0AE31 /* AuthService.swift */,
 				CF7CA3882474ECF800B0AE31 /* Med.swift */,
 				CF7CA38A2474F89100B0AE31 /* User.swift */,
+				CF7CA38E24765A1C00B0AE31 /* Parsing.swift */,
 			);
 			path = "Receta Medica";
 			sourceTree = "<group>";
@@ -260,6 +269,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF7CA39724766AD100B0AE31 /* SelectIconViewController.swift in Sources */,
+				CF7CA39524766AAC00B0AE31 /* AddMedTableViewController.swift in Sources */,
 				CF7CA37B2473111600B0AE31 /* RoundButton.swift in Sources */,
 				CFD9E4E62471F9E500BC1C44 /* Receta_Medica.xcdatamodeld in Sources */,
 				CFD9E4E02471F9E400BC1C44 /* ViewController.swift in Sources */,
@@ -271,6 +282,7 @@
 				CF7CA3872474ECA600B0AE31 /* MedTableViewCell.swift in Sources */,
 				CF7CA3852474EB4A00B0AE31 /* MedsTableViewController.swift in Sources */,
 				CF7CA3832474D4DD00B0AE31 /* DatabaseService.swift in Sources */,
+				CF7CA38F24765A1C00B0AE31 /* Parsing.swift in Sources */,
 				CFD9E4DC2471F9E400BC1C44 /* AppDelegate.swift in Sources */,
 				CF7CA37D2473189C00B0AE31 /* RoundImage.swift in Sources */,
 				CFD9E4DE2471F9E400BC1C44 /* SceneDelegate.swift in Sources */,

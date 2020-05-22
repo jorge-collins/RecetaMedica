@@ -1,6 +1,6 @@
 //
 //  MedsTableViewController.swift
-//  Prescription Reminder
+//  Prescription Reminder (from)
 //
 //  Created by Jorge Collins Gómez on 29/04/20.
 //  Copyright © 2020 CoRoSoftware. All rights reserved.
@@ -25,10 +25,10 @@ class MedsTableViewController: UIViewController, UITableViewDataSource, UITableV
         self.tableView.delegate = self
         self.tableView.dataSource = self
                
-        print("-- MedsTableView user: \(user!)")
+//        print("-- MedsTableView user: \(user!)")
                 
+        // -- Recuperamos la info del snapshot
         DatabaseService.shared.medsRef.observeSingleEvent(of: .value) { (snapshot:DataSnapshot) in
-            // -- Recuperamos la info del snapshot
             if let meds = snapshot.value as? Dictionary<String, AnyObject> {
                 for (key, value) in meds { //*
                     if let dict = value as? Dictionary<String, AnyObject> { //**
@@ -68,7 +68,7 @@ class MedsTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return "Mis medicinas (\(self.user.firstName) \(self.user.lastName))"
+            return "Mis medicinas: \(self.user.firstName) \(self.user.lastName)"
         }
         return "0"
     }
@@ -83,6 +83,9 @@ class MedsTableViewController: UIViewController, UITableViewDataSource, UITableV
         let med = self.meds[indexPath.row]
         cell.imageView?.image = UIImage(named: med.type) // La celda incluye una imagen y asi se asigna
         cell.textLabel?.text = med.name
+        
+        // Aqui debo generar la forma de mostrar el tiempo mas amigablemente o mostrar la siguiente dosis
+        
         cell.detailTextLabel?.text = "\(med.quantity) every \(med.periodicityInHours) time."
         return cell
     }
@@ -125,7 +128,7 @@ class MedsTableViewController: UIViewController, UITableViewDataSource, UITableV
     // MARK: Navigation
     
     @IBAction func unwindTo(segue: UIStoryboardSegue) {
-        /*
+        
         if segue.identifier == "unwindToMedsTableSegue" {
             
             if let addMedVC = segue.source as? AddMedTableViewController {
@@ -137,7 +140,7 @@ class MedsTableViewController: UIViewController, UITableViewDataSource, UITableV
                 }
             }
         }
-        */
+        
     }
     
     @IBAction func backPressed(_ sender: UIBarButtonItem) {

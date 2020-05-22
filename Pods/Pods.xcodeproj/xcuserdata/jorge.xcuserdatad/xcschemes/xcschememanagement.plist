@@ -7,7 +7,7 @@
 		<key>FirebaseAuth.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>15</integer>
+			<integer>14</integer>
 		</dict>
 		<key>FirebaseCore.xcscheme</key>
 		<dict>
@@ -26,7 +26,7 @@
 		<key>FirebaseDatabase.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>16</integer>
+			<integer>12</integer>
 		</dict>
 		<key>FirebaseInstallations.xcscheme</key>
 		<dict>
@@ -52,7 +52,7 @@
 		<key>GTMSessionFetcher.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>12</integer>
+			<integer>13</integer>
 		</dict>
 		<key>GoogleDataTransport.xcscheme</key>
 		<dict>
@@ -99,7 +99,7 @@
 		<key>leveldb-library.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>14</integer>
+			<integer>16</integer>
 		</dict>
 		<key>nanopb.xcscheme</key>
 		<dict>

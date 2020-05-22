@@ -49,9 +49,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Recibir Push Notifications en el Simulador
         registerForSendPushNotifications()
         // Recibir Push Notifications en el Simulador - EOF
+        
+        // Reseteamos la cuenta de notificaciones al iniciar la App
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        
         return true
     }
+
     
+    // MARK: - RemoteNotifications
     // [START receive_message]
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
       // If you are receiving a notification message while your app is in the background,

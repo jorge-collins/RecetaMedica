@@ -43,11 +43,9 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Correo electrónico" textAlignment="center" minimumFontSize="12" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="dZR-SV-Okh" customClass="RoundTextField" customModule="Receta_Medica" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="60"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="HF6-gA-qa0"/>
                                         </constraints>
-                                        <color key="textColor" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" textContentType="email"/>
                                         <userDefinedRuntimeAttributes>
@@ -55,7 +53,7 @@
                                                 <real key="value" value="30"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="value" red="0.39475947620000001" green="0.79834276439999996" blue="0.90199786420000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                 <real key="value" value="1"/>
@@ -67,11 +65,9 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Contraseña" textAlignment="center" minimumFontSize="12" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="sch-xh-Qys" customClass="RoundTextField" customModule="Receta_Medica" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="76" width="335" height="60"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="S0X-Mv-hSo"/>
                                         </constraints>
-                                        <color key="textColor" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                         <userDefinedRuntimeAttributes>
@@ -79,7 +75,7 @@
                                                 <real key="value" value="30"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="value" red="0.39475947620000001" green="0.79834276439999996" blue="0.90199786420000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                 <real key="value" value="1"/>
@@ -195,6 +191,11 @@
                                                 <action selector="backPressed:" destination="lfd-v0-9xg" id="ztK-y6-T7I"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="uf7-cS-j0e">
+                                            <connections>
+                                                <segue destination="OyH-tn-TB7" kind="presentation" identifier="showAddMed" modalPresentationStyle="fullScreen" id="iUq-CW-R4n"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -253,6 +254,519 @@
             </objects>
             <point key="canvasLocation" x="1088.8" y="132.68365817091455"/>
         </scene>
+        <!--Agregar medicina-->
+        <scene sceneID="qDm-df-pE0">
+            <objects>
+                <tableViewController id="uIa-eF-8GZ" customClass="AddMedTableViewController" customModule="Receta_Medica" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="HaU-cu-oE0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <sections>
+                            <tableViewSection id="hUc-Lb-4GF">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="sZD-n2-vuv">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sZD-n2-vuv" id="Zbo-mh-WxZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yMa-nt-ApA">
+                                                    <rect key="frame" x="10" y="13" width="355" height="34.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medicina:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uG9-LD-Wcw">
+                                                            <rect key="frame" x="0.0" y="0.0" width="102" height="34.5"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre del medicamento" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="EiW-uq-ZQ7">
+                                                            <rect key="frame" x="110" y="0.0" width="245" height="34.5"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                                            <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                                        </textField>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="EiW-uq-ZQ7" firstAttribute="width" secondItem="uG9-LD-Wcw" secondAttribute="width" multiplier="2.4" id="ziB-f4-iLY"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="yMa-nt-ApA" secondAttribute="trailing" constant="10" id="jG5-CR-4RV"/>
+                                                <constraint firstItem="yMa-nt-ApA" firstAttribute="leading" secondItem="Zbo-mh-WxZ" secondAttribute="leading" constant="10" id="odM-CY-pIB"/>
+                                                <constraint firstItem="yMa-nt-ApA" firstAttribute="centerY" secondItem="Zbo-mh-WxZ" secondAttribute="centerY" id="y3n-lo-Plk"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="e1a-2a-75n">
+                                        <rect key="frame" x="0.0" y="88" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e1a-2a-75n" id="9Z7-dd-2H4">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7Ho-uN-0qB">
+                                                    <rect key="frame" x="10" y="13" width="355" height="34"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="740" text="Cantidad y medida:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1x2-vR-NMt">
+                                                            <rect key="frame" x="0.0" y="0.0" width="186" height="34"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ejemplo: 10 ml" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="mST-NT-YM5">
+                                                            <rect key="frame" x="206" y="0.0" width="149" height="34"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                                            <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                                        </textField>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="mST-NT-YM5" firstAttribute="width" secondItem="1x2-vR-NMt" secondAttribute="width" multiplier="0.8" id="M72-ph-UAk"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7Ho-uN-0qB" firstAttribute="leading" secondItem="9Z7-dd-2H4" secondAttribute="leading" constant="10" id="9WK-fr-Ibc"/>
+                                                <constraint firstAttribute="trailing" secondItem="7Ho-uN-0qB" secondAttribute="trailing" constant="10" id="C87-cy-c9k"/>
+                                                <constraint firstItem="7Ho-uN-0qB" firstAttribute="centerY" secondItem="9Z7-dd-2H4" secondAttribute="centerY" id="Doc-tN-MvP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="190" id="nsf-1y-1cF">
+                                        <rect key="frame" x="0.0" y="148" width="375" height="190"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nsf-1y-1cF" id="hKE-XX-NaO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="190"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cada cuanto tiempo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLn-D7-vX5">
+                                                    <rect key="frame" x="10" y="4" width="355" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="zfo-Jo-E6Q"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" countDownDuration="3600" minuteInterval="15" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68H-Zk-5b4">
+                                                    <rect key="frame" x="40" y="26" width="295" height="160"/>
+                                                    <connections>
+                                                        <action selector="periodicityInHoursDatePicker:" destination="uIa-eF-8GZ" eventType="valueChanged" id="cpF-Sq-Ecb"/>
+                                                    </connections>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="mLn-D7-vX5" firstAttribute="leading" secondItem="hKE-XX-NaO" secondAttribute="leading" constant="10" id="2Nm-i8-fmE"/>
+                                                <constraint firstItem="68H-Zk-5b4" firstAttribute="leading" secondItem="hKE-XX-NaO" secondAttribute="leading" constant="40" id="CHl-ea-3Y4"/>
+                                                <constraint firstAttribute="trailing" secondItem="mLn-D7-vX5" secondAttribute="trailing" constant="10" id="Qeu-ra-G6q"/>
+                                                <constraint firstAttribute="trailing" secondItem="68H-Zk-5b4" secondAttribute="trailing" constant="40" id="aiQ-ZI-4DY"/>
+                                                <constraint firstItem="mLn-D7-vX5" firstAttribute="top" secondItem="hKE-XX-NaO" secondAttribute="top" constant="4" id="cE7-OE-QbO"/>
+                                                <constraint firstItem="68H-Zk-5b4" firstAttribute="top" secondItem="mLn-D7-vX5" secondAttribute="bottom" id="mHB-dl-Plu"/>
+                                                <constraint firstAttribute="bottom" secondItem="68H-Zk-5b4" secondAttribute="bottom" constant="4" id="s7L-Rb-uJu"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="phM-Ek-wFd">
+                                        <rect key="frame" x="0.0" y="338" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="phM-Ek-wFd" id="ScZ-85-L75">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Wmf-GT-p6P">
+                                                    <rect key="frame" x="10" y="14" width="355" height="32"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Durante cuantos días:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5O-EX-HOH">
+                                                            <rect key="frame" x="0.0" y="0.0" width="160" height="32"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HYl-Ob-k3c">
+                                                            <rect key="frame" x="180" y="0.0" width="61" height="32"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                        </textField>
+                                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="999" translatesAutoresizingMaskIntoConstraints="NO" id="Rba-VI-0aN">
+                                                            <rect key="frame" x="261" y="0.0" width="94" height="32"/>
+                                                            <connections>
+                                                                <action selector="daysToTakeStepper:" destination="uIa-eF-8GZ" eventType="valueChanged" id="0OD-Xt-ufl"/>
+                                                            </connections>
+                                                        </stepper>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Wmf-GT-p6P" firstAttribute="centerY" secondItem="ScZ-85-L75" secondAttribute="centerY" id="INV-yn-iAv"/>
+                                                <constraint firstAttribute="trailing" secondItem="Wmf-GT-p6P" secondAttribute="trailing" constant="10" id="V21-ft-PKc"/>
+                                                <constraint firstItem="Wmf-GT-p6P" firstAttribute="leading" secondItem="ScZ-85-L75" secondAttribute="leading" constant="10" id="cjG-QH-zcJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="190" id="5bB-Ah-xXr">
+                                        <rect key="frame" x="0.0" y="398" width="375" height="190"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5bB-Ah-xXr" id="CRe-dK-XGi">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="190"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Primera dosis:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOm-Ea-0we">
+                                                    <rect key="frame" x="10" y="4" width="355" height="24"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hwh-ck-sBa">
+                                                    <rect key="frame" x="40" y="28" width="295" height="162"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="162" id="CQe-X5-Avm"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="firstDoseDatePicker:" destination="uIa-eF-8GZ" eventType="valueChanged" id="AK0-oP-02u"/>
+                                                    </connections>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hwh-ck-sBa" firstAttribute="top" secondItem="qOm-Ea-0we" secondAttribute="bottom" id="5D2-ey-hJQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="hwh-ck-sBa" secondAttribute="bottom" id="6DM-V4-Ar3"/>
+                                                <constraint firstAttribute="trailing" secondItem="qOm-Ea-0we" secondAttribute="trailing" constant="10" id="6Eb-Kw-vbS"/>
+                                                <constraint firstItem="qOm-Ea-0we" firstAttribute="leading" secondItem="CRe-dK-XGi" secondAttribute="leading" constant="10" id="9R4-c5-1Zs"/>
+                                                <constraint firstItem="qOm-Ea-0we" firstAttribute="top" secondItem="CRe-dK-XGi" secondAttribute="top" constant="4" id="ckG-UP-3P5"/>
+                                                <constraint firstItem="hwh-ck-sBa" firstAttribute="leading" secondItem="CRe-dK-XGi" secondAttribute="leading" constant="40" id="lUr-3j-bmu"/>
+                                                <constraint firstAttribute="trailing" secondItem="hwh-ck-sBa" secondAttribute="trailing" constant="40" id="ls8-W9-TnV"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="CU6-5W-N4d">
+                                        <rect key="frame" x="0.0" y="588" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CU6-5W-N4d" id="jhb-dV-XwQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJT-UZ-ao4" customClass="RoundButton" customModule="Receta_Medica" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="20" width="343" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="X4F-mY-FBb"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
+                                                    <state key="normal" title="Cambiar imagen"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                            <color key="value" red="0.1306751072" green="0.52150911089999996" blue="0.96679383519999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <real key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="30"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <segue destination="O5j-Az-3Ig" kind="presentation" identifier="" id="w1C-c8-anv"/>
+                                                    </connections>
+                                                </button>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="e65-8p-IVf">
+                                                    <rect key="frame" x="133" y="0.0" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="kdt-aB-hq5"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="e65-8p-IVf" firstAttribute="centerY" secondItem="jhb-dV-XwQ" secondAttribute="centerY" id="6HE-uQ-6l5"/>
+                                                <constraint firstItem="e65-8p-IVf" firstAttribute="leading" secondItem="jhb-dV-XwQ" secondAttribute="leading" constant="133" id="75z-6x-Vjk"/>
+                                                <constraint firstItem="e65-8p-IVf" firstAttribute="top" secondItem="jhb-dV-XwQ" secondAttribute="top" id="HKN-vf-mF6"/>
+                                                <constraint firstItem="YJT-UZ-ao4" firstAttribute="centerY" secondItem="jhb-dV-XwQ" secondAttribute="centerY" id="Lwv-Sc-NcB"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="YJT-UZ-ao4" secondAttribute="trailing" id="TcK-DJ-jgf"/>
+                                                <constraint firstAttribute="bottom" secondItem="e65-8p-IVf" secondAttribute="bottom" id="jG3-NN-zX3"/>
+                                                <constraint firstItem="YJT-UZ-ao4" firstAttribute="leading" secondItem="jhb-dV-XwQ" secondAttribute="leadingMargin" id="xrg-wm-pTR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="uIa-eF-8GZ" id="mlD-6d-ely"/>
+                            <outlet property="delegate" destination="uIa-eF-8GZ" id="Hjf-wP-OPv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Agregar medicina" id="Jqk-8C-NVz">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="5WM-GX-iek">
+                            <connections>
+                                <segue destination="73F-JM-JlU" kind="unwind" identifier="unwindToMedsTableSegue" unwindAction="unwindToSegue:" id="Yiu-s0-1fM"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="qbK-3V-Y4n">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="uIa-eF-8GZ" id="TOx-kl-lIe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="daysToTakeTextField" destination="HYl-Ob-k3c" id="8Un-N2-xTl"/>
+                        <outlet property="firstDoseDatePicker" destination="hwh-ck-sBa" id="t0x-cr-CWp"/>
+                        <outlet property="iconImageView" destination="e65-8p-IVf" id="9up-rc-n0E"/>
+                        <outlet property="nameTextField" destination="EiW-uq-ZQ7" id="sxK-KC-ADW"/>
+                        <outlet property="periodicityInHoursDatePicker" destination="68H-Zk-5b4" id="Ten-36-7Ay"/>
+                        <outlet property="quantityTextField" destination="mST-NT-YM5" id="d4Y-OX-jPd"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jx2-yr-TDx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="73F-JM-JlU" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1960.8" y="136.28185907046478"/>
+        </scene>
+        <!--Select Icon View Controller-->
+        <scene sceneID="Tal-Ds-m1h">
+            <objects>
+                <viewController id="O5j-Az-3Ig" customClass="SelectIconViewController" customModule="Receta_Medica" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="l1a-jL-r8p">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_icons" translatesAutoresizingMaskIntoConstraints="NO" id="b6s-LE-i8G">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecciona una imagen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jqN-ZL-EGo">
+                                <rect key="frame" x="27" y="40" width="321.5" height="42"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="2" height="-1"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="iVn-hH-wdy">
+                                <rect key="frame" x="62.5" y="142" width="250" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CxY-3O-Xb7">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                        <color key="backgroundColor" red="0.40466880799999999" green="0.80115002390000001" blue="0.97716730829999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="CTq-TD-yCl"/>
+                                            <constraint firstAttribute="height" constant="70" id="zDJ-R9-l1y"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="1"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="35"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="iconPressed:" destination="O5j-Az-3Ig" eventType="touchUpInside" id="M3f-or-6u7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxC-QU-YV6">
+                                        <rect key="frame" x="90" y="0.0" width="70" height="70"/>
+                                        <color key="backgroundColor" red="0.40466880799999999" green="0.80115002390000001" blue="0.97716730829999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="LLK-RI-NB9"/>
+                                            <constraint firstAttribute="height" constant="70" id="V5J-Ah-OQS"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="2"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="35"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="iconPressed:" destination="O5j-Az-3Ig" eventType="touchUpInside" id="lKD-C5-PbU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfi-gB-8Cr">
+                                        <rect key="frame" x="180" y="0.0" width="70" height="70"/>
+                                        <color key="backgroundColor" red="0.40466880799999999" green="0.80115002390000001" blue="0.97716730829999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="Zp9-O1-Sb6"/>
+                                            <constraint firstAttribute="width" constant="70" id="tbK-jF-ea8"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="3"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="35"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="iconPressed:" destination="O5j-Az-3Ig" eventType="touchUpInside" id="bWV-cq-MuL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wyi-hI-KXG">
+                                <rect key="frame" x="62.5" y="232" width="250" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ps6-mv-udh">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                        <color key="backgroundColor" red="0.40466880799999999" green="0.80115002390000001" blue="0.97716730829999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="2np-4H-xJl"/>
+                                            <constraint firstAttribute="width" constant="70" id="5M6-Ym-nsi"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="4"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="35"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="iconPressed:" destination="O5j-Az-3Ig" eventType="touchUpInside" id="kYK-et-Q2z"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="am7-ap-NaI">
+                                        <rect key="frame" x="90" y="0.0" width="70" height="70"/>
+                                        <color key="backgroundColor" red="0.40466880799999999" green="0.80115002390000001" blue="0.97716730829999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="3JL-zo-ypS"/>
+                                            <constraint firstAttribute="height" constant="70" id="uJK-ZJ-JjR"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="5"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="35"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="iconPressed:" destination="O5j-Az-3Ig" eventType="touchUpInside" id="wpt-Ii-5Xy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VcO-Yl-ONd">
+                                        <rect key="frame" x="180" y="0.0" width="70" height="70"/>
+                                        <color key="backgroundColor" red="0.40466880799999999" green="0.80115002390000001" blue="0.97716730829999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="flM-Uy-7rh"/>
+                                            <constraint firstAttribute="height" constant="70" id="pcq-1b-efR"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="6"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="35"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="iconPressed:" destination="O5j-Az-3Ig" eventType="touchUpInside" id="WDV-89-chV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="oVy-VH-SE8">
+                                <rect key="frame" x="62.5" y="322" width="250" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRK-JO-jM3">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                        <color key="backgroundColor" red="0.40466880799999999" green="0.80115002390000001" blue="0.97716730829999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="Enr-Vq-pId"/>
+                                            <constraint firstAttribute="width" constant="70" id="zAk-eY-CSS"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="7"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="35"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="iconPressed:" destination="O5j-Az-3Ig" eventType="touchUpInside" id="n29-RC-Ci7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1k3-Xg-IUN">
+                                        <rect key="frame" x="90" y="0.0" width="70" height="70"/>
+                                        <color key="backgroundColor" red="0.40466880799999999" green="0.80115002390000001" blue="0.97716730829999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="ik1-7X-4Vb"/>
+                                            <constraint firstAttribute="width" constant="70" id="zeX-PE-Ze7"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="8"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="35"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="iconPressed:" destination="O5j-Az-3Ig" eventType="touchUpInside" id="uP3-LZ-NLt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMy-eN-oDv">
+                                        <rect key="frame" x="180" y="0.0" width="70" height="70"/>
+                                        <color key="backgroundColor" red="0.40466880799999999" green="0.80115002390000001" blue="0.97716730829999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="T4N-i8-P0p"/>
+                                            <constraint firstAttribute="height" constant="70" id="tGV-Og-WAu"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="9"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="35"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="iconPressed:" destination="O5j-Az-3Ig" eventType="touchUpInside" id="bx3-ec-q5U"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NAr-6k-Bi4" customClass="RoundButton" customModule="Receta_Medica" customModuleProvider="target">
+                                <rect key="frame" x="40" y="472" width="295" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="443-8M-jRH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
+                                <state key="normal" title="Cancelar"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.40466880799999999" green="0.80115002390000001" blue="0.97716730829999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="WCj-9K-5nm" kind="unwind" identifier="unwindSegue" unwindAction="closeWithSegue:" id="VHb-Yp-ba1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="oVy-VH-SE8" firstAttribute="centerX" secondItem="l1a-jL-r8p" secondAttribute="centerX" id="8qf-z1-gjW"/>
+                            <constraint firstItem="wyi-hI-KXG" firstAttribute="centerX" secondItem="l1a-jL-r8p" secondAttribute="centerX" id="AoE-Yj-fMb"/>
+                            <constraint firstItem="NAr-6k-Bi4" firstAttribute="leading" secondItem="CcP-Cd-ErQ" secondAttribute="leading" constant="40" id="COC-Kb-jPU"/>
+                            <constraint firstItem="b6s-LE-i8G" firstAttribute="bottom" secondItem="CcP-Cd-ErQ" secondAttribute="bottom" id="DsO-qL-WcK"/>
+                            <constraint firstItem="CcP-Cd-ErQ" firstAttribute="trailing" secondItem="NAr-6k-Bi4" secondAttribute="trailing" constant="40" id="Gso-Th-cuI"/>
+                            <constraint firstItem="b6s-LE-i8G" firstAttribute="leading" secondItem="CcP-Cd-ErQ" secondAttribute="leading" id="HCv-XN-KiK"/>
+                            <constraint firstItem="wyi-hI-KXG" firstAttribute="top" secondItem="iVn-hH-wdy" secondAttribute="bottom" constant="20" id="K7i-pj-eyK"/>
+                            <constraint firstItem="jqN-ZL-EGo" firstAttribute="top" secondItem="CcP-Cd-ErQ" secondAttribute="top" constant="40" id="UgS-IC-OVp"/>
+                            <constraint firstItem="oVy-VH-SE8" firstAttribute="top" secondItem="wyi-hI-KXG" secondAttribute="bottom" constant="20" id="XcV-az-mZw"/>
+                            <constraint firstItem="b6s-LE-i8G" firstAttribute="top" secondItem="CcP-Cd-ErQ" secondAttribute="top" id="b6B-XD-TWs"/>
+                            <constraint firstItem="iVn-hH-wdy" firstAttribute="centerX" secondItem="l1a-jL-r8p" secondAttribute="centerX" id="eyU-LF-yAF"/>
+                            <constraint firstItem="b6s-LE-i8G" firstAttribute="trailing" secondItem="CcP-Cd-ErQ" secondAttribute="trailing" id="fm6-lC-PfP"/>
+                            <constraint firstItem="iVn-hH-wdy" firstAttribute="top" secondItem="jqN-ZL-EGo" secondAttribute="bottom" constant="60" id="kH9-os-JV3"/>
+                            <constraint firstItem="jqN-ZL-EGo" firstAttribute="centerX" secondItem="l1a-jL-r8p" secondAttribute="centerX" id="oFc-Wj-sDv"/>
+                            <constraint firstItem="NAr-6k-Bi4" firstAttribute="top" secondItem="oVy-VH-SE8" secondAttribute="bottom" constant="80" id="umw-jM-LgW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CcP-Cd-ErQ"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="b6s-LE-i8G" id="ZwY-Bc-qkD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h3t-ew-m76" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="WCj-9K-5nm" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2860" y="136.28185907046478"/>
+        </scene>
         <!--Register View Controller-->
         <scene sceneID="bPK-dV-khR">
             <objects>
@@ -308,11 +822,9 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Nombre(s)" textAlignment="center" minimumFontSize="12" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="UC3-GO-8NN" customClass="RoundTextField" customModule="Receta_Medica" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="60"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="XRu-5J-6FO"/>
                                         </constraints>
-                                        <color key="textColor" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" spellCheckingType="no"/>
                                         <userDefinedRuntimeAttributes>
@@ -320,7 +832,7 @@
                                                 <real key="value" value="30"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="value" red="0.39475947620000001" green="0.79834276439999996" blue="0.90199786420000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                 <real key="value" value="1"/>
@@ -332,11 +844,9 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Apellido(s)" textAlignment="center" minimumFontSize="12" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="PfC-In-EKs" customClass="RoundTextField" customModule="Receta_Medica" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="68" width="335" height="60"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="xGH-Tv-XQE"/>
                                         </constraints>
-                                        <color key="textColor" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" spellCheckingType="no"/>
                                         <userDefinedRuntimeAttributes>
@@ -344,7 +854,7 @@
                                                 <real key="value" value="30"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="value" red="0.39475947620000001" green="0.79834276439999996" blue="0.90199786420000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                 <real key="value" value="1"/>
@@ -356,11 +866,9 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Correo electrónico" textAlignment="center" minimumFontSize="12" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="tOb-jX-71y" customClass="RoundTextField" customModule="Receta_Medica" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="136" width="335" height="60"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="Ft1-0G-loT"/>
                                         </constraints>
-                                        <color key="textColor" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" textContentType="email"/>
                                         <userDefinedRuntimeAttributes>
@@ -368,7 +876,7 @@
                                                 <real key="value" value="30"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="value" red="0.39475947620000001" green="0.79834276439999996" blue="0.90199786420000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                 <real key="value" value="1"/>
@@ -380,11 +888,9 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Contraseña" textAlignment="center" minimumFontSize="12" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="YLw-Gd-l0k" customClass="RoundTextField" customModule="Receta_Medica" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="204" width="335" height="60"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="mE1-wk-8Qa"/>
                                         </constraints>
-                                        <color key="textColor" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                         <userDefinedRuntimeAttributes>
@@ -392,7 +898,7 @@
                                                 <real key="value" value="30"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="value" red="0.39475947620000001" green="0.79834276439999996" blue="0.90199786420000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                 <real key="value" value="1"/>
@@ -442,10 +948,37 @@
             </objects>
             <point key="canvasLocation" x="138" y="938"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iSI-DB-PrD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OyH-tn-TB7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="42m-9G-TEl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uIa-eF-8GZ" kind="relationship" relationship="rootViewController" id="Cct-Ky-iMB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W97-OK-yZb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1962" y="-675"/>
+        </scene>
     </scenes>
     <resources>
         <image name="1" width="200" height="200"/>
+        <image name="2" width="200" height="200"/>
+        <image name="3" width="200" height="200"/>
+        <image name="4" width="200" height="200"/>
+        <image name="5" width="320" height="320"/>
+        <image name="6" width="200" height="200"/>
+        <image name="7" width="200" height="200"/>
+        <image name="8" width="200" height="200"/>
+        <image name="9" width="200" height="200"/>
         <image name="arrow.left" catalog="system" width="128" height="98"/>
+        <image name="background_icons" width="1280" height="1242"/>
         <image name="logoRecetaMedica" width="1238" height="1238"/>
     </resources>
 </document>
