@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UserNotifications
 
 class Parsing {
     
@@ -53,29 +54,106 @@ class Parsing {
         return str
     }
     
-    /*
-    //    @IBAction func quantityStepper(_ sender: UIStepper) {
-    //        quantityVar = sender.value * 0.25
-    //        let integer = Int(quantityVar)
-    //        let minus = quantityVar - Double(integer)
-    //        var fraction = ""
-    //        switch minus {
-    //        case 0.25:
-    //            fraction = "1/4"
-    //        case 0.5:
-    //            fraction = "1/2"
-    //        case 0.75:
-    //            fraction = "3/4"
-    //        default:
-    //            fraction = ""
-    //        }
-    //        var result = "\(fraction)"
-    //        if integer > 0 {
-    //            result = "\(integer) \(fraction)"
-    //        }
-    //
-    //        quantityTextField.text = String(result)
-    //    }
+    
+
+
+    func setLocalNotification(date: Date, title: String, subtitle: String, body: String, badge: NSNumber) -> String {
+        var result = ""
+
+//        print("date: \(date)")
+        
+        // 1 Obtenemos los componentes de la fecha recibida
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+        
+        var matchComponents = DateComponents()
+        matchComponents.year = components.year
+        matchComponents.month = components.month
+        matchComponents.day = components.day
+        matchComponents.hour = components.hour
+        matchComponents.minute = components.minute
+//        print("-- dateComponents: \(matchComponents)")
+        
+        // 1.5 Especificamos el trigger
+        let trigger = UNCalendarNotificationTrigger(dateMatching: matchComponents, repeats: false)
+
+        // 2 Especificamos el content
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.subtitle = subtitle
+        content.body = body
+        content.badge = badge
+        content.sound = UNNotificationSound.default
+        
+
+        // 2.5 Configuramos el request de la notificación con un identificador aleatorio
+        let randomIdentifier = UUID().uuidString
+        let request = UNNotificationRequest(identifier: randomIdentifier, content: content, trigger: trigger)
+
+        // 3 Agregamos la notificacion
+        UNUserNotificationCenter.current().add(request) { error in
+          if error != nil {
+            result = error!.localizedDescription
+//            print("result: \(result)")
+          }
+        }
+
+        return result
+    }
+
+    
+    /**
+        A partir de un valor en horas(time) devuelve su representacion en fracciones.
+     
+        El resultado siempre se entrega en `UTC`
+        - Parameter time: la hora a traducir
+        - Parameter format: formato en el que debe ser entregado el resultado
+        
+        - Returns: string indicando las horas (y/o minutos) en fracciones de hora
     */
+    func timeAsFraction(time: String, format: String) -> String {
+        var result = ""
+//        print("time: \(time)")
+        
+        let timeAsDate = stringToDate(string: time, dateFormat: format)
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.hour, .minute], from: timeAsDate)
+        
+        if let hour = components.hour, let minute = components.minute {
+            var fraction = ""
+            switch minute {
+                case 15:
+                    fraction = "1/4"
+                case 30:
+                    fraction = "1/2"
+                case 45:
+                    fraction = "3/4"
+                default:
+                    fraction = ""
+                }
+                                    
+            if hour == 0 {
+                switch fraction {
+                case "1/4", "3/4":
+                    result = "\(fraction) de hora"
+                case "1/2":
+                    result = "\(fraction) hora"
+                default:
+                    break
+                }
+            } else {
+                if fraction != "" {
+                    result = "\(hour) \(fraction) horas"
+                } else {
+                    result = "\(hour) horas"
+                }
+            }
+
+        }
+        
+        return result
+    }
+    
+    
 }
 

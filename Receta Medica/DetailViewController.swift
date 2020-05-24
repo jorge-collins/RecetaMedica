@@ -100,6 +100,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                         let resultCompare = Calendar.current.compare(dateAsDate, to: dateNow, toGranularity: .minute)
                         if resultCompare == ComparisonResult.orderedDescending {
                             nextDose = Parsing.shared.dateToString(date: dateAsDate, localeId: localeId, dateFormat: "H:mm EEEE, dd·MMM·yyyy")
+                            
                             break
                         }
                     }

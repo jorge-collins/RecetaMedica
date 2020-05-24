@@ -25,37 +25,9 @@ class MedsTableViewController: UIViewController, UITableViewDataSource, UITableV
         self.tableView.delegate = self
         self.tableView.dataSource = self
                
-//        print("-- MedsTableView user: \(user!)")
-                
-        // -- Recuperamos la info del snapshot
-        DatabaseService.shared.medsRef.observeSingleEvent(of: .value) { (snapshot:DataSnapshot) in
-            if let meds = snapshot.value as? Dictionary<String, AnyObject> {
-                for (key, value) in meds { //*
-                    if let dict = value as? Dictionary<String, AnyObject> { //**
-                        if self.user.userid == dict["userid"] as? String { //***
-                            
-                            if let name = dict["name"] as? String,
-                                let userid = dict["userid"] as? String,
-                                let type = dict["type"] as? String,
-                                let mediaURL = dict["mediaURL"] as? String,
-                                let daysToTake = dict["daysToTake"] as? String,
-                                let firstDose = dict["firstDose"] as? String,
-                                let periodicityInHours = dict["periodicityInHours"] as? String,
-                                let quantity = dict["quantity"] as? String,
-                                let alerts = dict["alerts"] as? Dictionary<String, AnyObject> { //****
-                                    let medid = key
-
-                                    let med = Med(medid: medid, userid: userid, name: name, type: type, mediaURL: mediaURL, daysToTake: daysToTake, firstDose: firstDose, periodicityInHours: periodicityInHours, quantity: quantity, alerts: alerts)
-                                    self.meds.append(med)
-                            } //****
-                        } //***
-                    } //**
-                } //*
-                self.meds.sort { $0.name < $1.name }
-                self.tableView.reloadData()
-            }
-            //--
-        }
+        // Cargamos la tableView con la info
+        loadTableViewFromScratch()
+        
     }
 
 
@@ -81,12 +53,18 @@ class MedsTableViewController: UIViewController, UITableViewDataSource, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "MedCell", for: indexPath) as! MedTableViewCell
         cell.imageView?.contentMode = .scaleAspectFit
         let med = self.meds[indexPath.row]
+//        print("--med: \(med)")
+
         cell.imageView?.image = UIImage(named: med.type) // La celda incluye una imagen y asi se asigna
         cell.textLabel?.text = med.name
         
-        // Aqui debo generar la forma de mostrar el tiempo mas amigablemente o mostrar la siguiente dosis
+        // Aqui debo generar la forma de mostrar el tiempo mas amigablemente
         
-        cell.detailTextLabel?.text = "\(med.quantity) cada \(med.periodicityInHours) horas."
+//        cell.detailTextLabel?.text = "\(med.quantity) cada \(med.periodicityInHours) horas."
+
+        let timeInFraction = Parsing.shared.timeAsFraction(time: med.periodicityInHours, format: "HH:mm")
+        cell.detailTextLabel?.text = "\(med.quantity) cada \(timeInFraction)."
+        
         return cell
     }
     
@@ -133,17 +111,58 @@ class MedsTableViewController: UIViewController, UITableViewDataSource, UITableV
             
             if let addMedVC = segue.source as? AddMedTableViewController {
                 if let newMed = addMedVC.med {
-                    meds.append(newMed)
-                    self.meds.sort { $0.name < $1.name }
-                    self.tableView.reloadData()
-                    print("Unwind con update")
+                    print("newMed: \(newMed)")
+
+                    loadTableViewFromScratch()
+                    
                 }
             }
         }
         
     }
     
+    // Remueve todos los elementos del array de elementos y lo recarga con la DB, asi mismo con el tableView
+    func loadTableViewFromScratch() {
+        // Limpiamos el array
+        self.meds.removeAll()
+        // -- Recuperamos la info del snapshot
+        DatabaseService.shared.medsRef.observeSingleEvent(of: .value) { (snapshot:DataSnapshot) in
+            if let meds = snapshot.value as? Dictionary<String, AnyObject> {
+                for (key, value) in meds { //*
+                    if let dict = value as? Dictionary<String, AnyObject> { //**
+                        if self.user.userid == dict["userid"] as? String { //***
+                            
+                            if let name = dict["name"] as? String,
+                                let userid = dict["userid"] as? String,
+                                let type = dict["type"] as? String,
+                                let mediaURL = dict["mediaURL"] as? String,
+                                let daysToTake = dict["daysToTake"] as? String,
+                                let firstDose = dict["firstDose"] as? String,
+                                let periodicityInHours = dict["periodicityInHours"] as? String,
+                                let quantity = dict["quantity"] as? String,
+                                let alerts = dict["alerts"] as? Dictionary<String, AnyObject> { //****
+                                    let medid = key
+
+                                    let med = Med(medid: medid, userid: userid, name: name, type: type, mediaURL: mediaURL, daysToTake: daysToTake, firstDose: firstDose, periodicityInHours: periodicityInHours, quantity: quantity, alerts: alerts)
+                                    self.meds.append(med)
+                            } //****
+                        } //***
+                    } //**
+                } //*
+                self.meds.sort { $0.name < $1.name }
+                self.tableView.reloadData()
+            }
+            //--
+        }
+    }
+    
     @IBAction func backPressed(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        // Se realiza el signOut en Firebase
+        do {
+            try Auth.auth().signOut()
+            dismiss(animated: true, completion: nil)
+            } catch let err {
+                print(err)
+            }
     }
 }

@@ -124,6 +124,14 @@ class AddMedTableViewController: UITableViewController, UITextFieldDelegate {
                 // Agregar la newAlert al array de alertas como tipo string
                 let newAlertAsStr = Parsing.shared.dateToString(date: newAlert, localeId: localeId, dateFormat: dateFormat)
                 doseAlerts[newAlertAsStr] = true as AnyObject
+                
+                /// Agregar una LocalNotification
+                // Obtenemos la forma como deseamos que se vea la hora
+                let medTime = Parsing.shared.dateToString(date: newAlert, localeId: localeId, dateFormat: "H:mm")
+                // Agregamos la notificación
+                _ = Parsing.shared.setLocalNotification(date: newAlert, title: "\(nameValue) - \(quantityValue)", subtitle: "", body: medTime, badge: 1)
+                /// EOF
+                
                 // Agregar las horas y minutos a la ultima fecha
                 if periodicityHs > 0 {
                     newAlert = Calendar.current.date(byAdding: .hour, value: +periodicityHs, to: newAlert)!
@@ -136,15 +144,14 @@ class AddMedTableViewController: UITableViewController, UITextFieldDelegate {
               // ... sí lo es, repite
             } while repeatOneMore == ComparisonResult.orderedAscending
             // print("doseAlerts: \(doseAlerts)")
-                        
+            
+            // Agregamos el medicamento a la base de datos
             DatabaseService.shared.saveMed(userUID: useridVar!, type: typeVar, quantity: quantityValue, periodicityInHours: periodicityInHoursValueVar, name: nameValue, mediaURL: mediaURLVar, firstDose: firstDoseValueVar, daysToTake: daysToTakeValue, alerts: self.doseAlerts)
 
+            // Agregamos el medicamento al array de medicamentos de la App
             self.med = Med(medid: "", userid: useridVar!, name: nameValue, type: typeVar, mediaURL: mediaURLVar, daysToTake: daysToTakeValue, firstDose: firstDoseValueVar, periodicityInHours: periodicityInHoursValueVar, quantity: quantityValue, alerts: self.doseAlerts)
-            
-//            print("-- Med saved")
-//            print(self.med!)
-//            self.dismiss(animated: true, completion: nil)
-//            performSegue(withIdentifier: "unwindSegue", sender: sender) // unwindSegue
+
+            // Realizamos el unwind para poder realizar operaciones en la vista anterior
             performSegue(withIdentifier: "unwindToMedsTableSegue", sender: self)
 
         } else {
@@ -154,20 +161,7 @@ class AddMedTableViewController: UITableViewController, UITextFieldDelegate {
             present(alertController, animated: true, completion: nil)
         }
     }
-    
-    
-    
-    //MARK: Funciones personales
-    
-    func getValueDatePicker(dateFormat: String, datePicker: UIDatePicker) -> String {
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = dateFormat
-        dateFormatter.timeZone = TimeZone.current
 
-        let result = dateFormatter.string(from: datePicker.date)
-        return result
-    }
     
 //    @IBAction func changeIconPressed(_ sender: Any) {
 //        // Solo se utilizo para comprobar el botón pero no es necesario por el -segue-
@@ -189,5 +183,17 @@ class AddMedTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     
+    
+    //MARK: - Funciones personales
+    
+    func getValueDatePicker(dateFormat: String, datePicker: UIDatePicker) -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        dateFormatter.timeZone = TimeZone.current
+
+        let result = dateFormatter.string(from: datePicker.date)
+        return result
+    }
 
 }

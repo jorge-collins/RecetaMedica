@@ -15,18 +15,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-       
+    @IBOutlet weak var forgotPassword: UIButton!
+    
     private var user : User!
         
     override func viewDidLoad() {
         super.viewDidLoad()
 
         activityIndicator.isHidden = true
+
+        forgotPassword.isHidden = true
         
         /// Inicializaciones para testing
-        // 480uMmolZ5duweP0824wMIVKfxh1 : "USER" con 3 meds
-        emailTextField.text = "user_testpwd@corosoftware.com"
-        passwordTextField.text = "testpwd"
+//        // 480uMmolZ5duweP0824wMIVKfxh1 : "USER" con 3 meds
+//        emailTextField.text = "user_testpwd@corosoftware.com"
+//        passwordTextField.text = "testpwd"
 //        // 887zsjnW8paUo9GFmdH5g4TtXAB3 : "John" con 3 meds
 //        emailTextField.text = "j_collins@gmail.com"
 //        passwordTextField.text = "collins"
@@ -36,24 +39,54 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // KiTn6dCxO8QbHz9VAPUkgWf9KNe2 : "J" con 0 meds
 //        emailTextField.text = "user.passw0rd@corosoftware.com"
 //        passwordTextField.text = "passw0rd"
+                
+        // Remueve todas las notificaciones pendientes
+//        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         
-        // Local Notification
-        let content = UNMutableNotificationContent()
-        content.title = "Feed the cat2"
-        content.subtitle = "It looks hungry"
-        content.sound = UNNotificationSound.default
-
-        // show this notification five seconds from now
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
-
-        // choose a random identifier
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-
-        // add our notification request
-        UNUserNotificationCenter.current().add(request)
-        // Local Notification EOF
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let currentUser = Auth.auth().currentUser
+        // Vigilamos la condicion para continuar, en caso contrario se realiza lo indicado en su "else"
+        guard currentUser != nil else {
+            print("--- Entró al else del guard")
+            return
+        }
+//        print("currentUser: \(currentUser)")
+
+        // Recuperamos de la DB los datos del usuario autorizado
+        DatabaseService.shared.userRef.observeSingleEvent(of: .value) { (snapshot) in
+//            print("snapshot: \(snapshot)")
+            if let users = snapshot.value as? Dictionary<String, AnyObject> {
+                for (key, value) in users {
+//                    print("key: \(key)")
+                    if currentUser?.uid == key {
+                        
+                        if let profile = value as? Dictionary<String, AnyObject> {
+    //                                    print("profile: \(profile)")
+                            if let dict = profile["profile"] as? Dictionary<String, AnyObject> {
+    //                                        print("dict: \(dict)")
+                                if let firstName = dict["firstName"] as? String, let lastName = dict["lastName"] as? String,
+                                   let emailTo     = dict["email"] as? String,     let password = dict["password"] as? String {
+                                    
+                                    let userid = key
+                                    // le asignamos los datos recuperados al usuario que se enviara en el segue
+                                    self.user = User(userid: userid, email: emailTo, firstName: firstName, lastName: lastName, password: password)
+                                    // Ejecutamos el segue
+                                    self.performSegue(withIdentifier: "showMedsViewController", sender: self)
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+        
+        print("Quedamos afuera del guard")
+//        performSegue(withIdentifier: "showMedsViewController", sender: nil)
+    }
     
     override var prefersStatusBarHidden: Bool {
         return true
