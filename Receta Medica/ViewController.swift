@@ -43,11 +43,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Remueve todas las notificaciones pendientes
 //        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         
+        /*
+         Revisar lo del timePicker, ¿Por qué no registra el primer movimiento al indicar mas horas?
+         
+         Arreglar la posicion de la imagen al agregar medicamento
+         
+         Arreglar la visualizacion de los detalles, la imagen esta muy grande.
+        
+        */
+        
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
         let currentUser = Auth.auth().currentUser
+        print("currentUser?.uid: \(currentUser?.uid)")
         // Vigilamos la condicion para continuar, en caso contrario se realiza lo indicado en su "else"
         guard currentUser != nil else {
             print("--- Entró al else del guard")
@@ -60,9 +70,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
 //            print("snapshot: \(snapshot)")
             if let users = snapshot.value as? Dictionary<String, AnyObject> {
                 for (key, value) in users {
-//                    print("key: \(key)")
+                    print("key: \(key)")
                     if currentUser?.uid == key {
-                        
+
                         if let profile = value as? Dictionary<String, AnyObject> {
     //                                    print("profile: \(profile)")
                             if let dict = profile["profile"] as? Dictionary<String, AnyObject> {

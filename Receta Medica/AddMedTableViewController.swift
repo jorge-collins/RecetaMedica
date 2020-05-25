@@ -43,7 +43,6 @@ class AddMedTableViewController: UITableViewController, UITextFieldDelegate {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         navigationController?.navigationBar.prefersLargeTitles = true
-//        self.tableView.
                 
         periodicityInHoursValueVar = getValueDatePicker(dateFormat: "HH:mm", datePicker: periodicityInHoursDatePicker)
         
@@ -51,13 +50,25 @@ class AddMedTableViewController: UITableViewController, UITextFieldDelegate {
         
         firstDoseValueVar = getValueDatePicker(dateFormat: dateFormat, datePicker: firstDoseDatePicker)
         
-        
-        // Valores por defecto de prueba
-//        nameTextField.text = "Nombremedicamentoprueba"
-//        quantityTextField.text = "1/4"
-//        daysToTakeTextField.text = "1"
-        
+        // Codigo para corregir parcialmente el malfuncionamiento del UIDatePicker:
+        // Si indicas 00:00, te manda al siguiente valor minimo, lo cual provoca que el siguiente valor indicado por el usuario no sea tomado en cuenta.
+        let dateComp : NSDateComponents = NSDateComponents()
+        dateComp.hour = 1
+        dateComp.minute = 0
+        dateComp.timeZone = NSTimeZone.system
+        let calendar : NSCalendar = NSCalendar(calendarIdentifier: .gregorian)!
+        let dateC : Date = calendar.date(from: dateComp as DateComponents)! as Date
+        DispatchQueue.main.async {
+            self.periodicityInHoursDatePicker.setDate(dateC, animated: false)
+        }
+        // Aqui termina el parche...
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        periodicityInHoursDatePicker.countDownDuration = 60
+//    }
+    
+    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Para deseleccionar el renglon de la tabla
@@ -83,6 +94,8 @@ class AddMedTableViewController: UITableViewController, UITextFieldDelegate {
 
     @IBAction func periodicityInHoursDatePicker(_ sender: Any) {
         periodicityInHoursValueVar = getValueDatePicker(dateFormat: "HH:mm", datePicker: periodicityInHoursDatePicker)
+        print("periodicityInHoursValueVar: \(periodicityInHoursValueVar)")
+
     }
     
     @IBAction func daysToTakeStepper(_ sender: UIStepper) {
@@ -106,6 +119,10 @@ class AddMedTableViewController: UITableViewController, UITextFieldDelegate {
             // Obtenemos las horas y minutos del periodo
             let periodicityHs = Int(periodicityInHoursValueVar.prefix(2))!
             let periodicityMs = Int(periodicityInHoursValueVar.suffix(2))!
+            print("periodicityInHoursValueVar: \(periodicityInHoursValueVar)")
+            print("periodicityHs: \(periodicityHs)")
+            print("periodicityMs: \(periodicityMs)")
+
             
             // Obtenemos en tipo `date` la fecha inicial
             let firstDoseValueDate = Parsing.shared.stringToDate(string: firstDoseValueVar, dateFormat: dateFormat)
