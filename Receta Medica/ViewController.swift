@@ -44,12 +44,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
 //        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         
         /*
-         Revisar lo del timePicker, ¿Por qué no registra el primer movimiento al indicar mas horas?
          
-         Arreglar la posicion de la imagen al agregar medicamento
          
-         Arreglar la visualizacion de los detalles, la imagen esta muy grande.
-        
+         Guardar las LocalNotificationIdentifiers en algun lado para poderlos borrar posteriormente.
+         
+         
+         Buscar como hacer lo de la verificacion del login antes de que se muestre el view.
+         
+         Solucionar lo de sumarle 1 al numero de badges, en lugar de asignarle un numero aleatorio. Tambien falta saber cuando y como "limpiar" las badges.
+         
         */
         
     }
@@ -57,26 +60,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         let currentUser = Auth.auth().currentUser
-        print("currentUser?.uid: \(currentUser?.uid)")
+
         // Vigilamos la condicion para continuar, en caso contrario se realiza lo indicado en su "else"
         guard currentUser != nil else {
-            print("--- Entró al else del guard")
             return
         }
-//        print("currentUser: \(currentUser)")
 
         // Recuperamos de la DB los datos del usuario autorizado
         DatabaseService.shared.userRef.observeSingleEvent(of: .value) { (snapshot) in
 //            print("snapshot: \(snapshot)")
             if let users = snapshot.value as? Dictionary<String, AnyObject> {
                 for (key, value) in users {
-                    print("key: \(key)")
+//                    print("key: \(key)")
                     if currentUser?.uid == key {
 
                         if let profile = value as? Dictionary<String, AnyObject> {
-    //                                    print("profile: \(profile)")
+//                            print("profile: \(profile)")
                             if let dict = profile["profile"] as? Dictionary<String, AnyObject> {
-    //                                        print("dict: \(dict)")
+//                                print("dict: \(dict)")
                                 if let firstName = dict["firstName"] as? String, let lastName = dict["lastName"] as? String,
                                    let emailTo     = dict["email"] as? String,     let password = dict["password"] as? String {
                                     
@@ -93,9 +94,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        
-        print("Quedamos afuera del guard")
-//        performSegue(withIdentifier: "showMedsViewController", sender: nil)
+        // print("Quedamos afuera del guard")
     }
     
     override var prefersStatusBarHidden: Bool {

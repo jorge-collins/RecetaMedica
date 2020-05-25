@@ -966,6 +966,7 @@
                                 <rect key="frame" x="87.5" y="447" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Ya1-HS-jQc"/>
+                                    <constraint firstAttribute="height" constant="200" id="hI2-SZ-R0C"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="J8P-DC-5bU">
@@ -1018,9 +1019,8 @@
                                     <outlet property="delegate" destination="ptu-S3-NMQ" id="N8d-4R-9Cf"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s32-QV-uYN" customClass="RoundButton" customModule="Receta_Medica" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s32-QV-uYN" customClass="RoundButton" customModule="Receta_Medica" customModuleProvider="target">
                                 <rect key="frame" x="40" y="527" width="295" height="60"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="ApE-FJ-VSm"/>
                                 </constraints>

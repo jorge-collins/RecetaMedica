@@ -93,10 +93,11 @@ class Parsing {
         // 3 Agregamos la notificacion
         UNUserNotificationCenter.current().add(request) { error in
           if error != nil {
-            result = error!.localizedDescription
-//            print("result: \(result)")
+//            result = error!.localizedDescription
+            print("result: \(error!.localizedDescription)")
           }
         }
+        result = randomIdentifier
 
         return result
     }
@@ -113,26 +114,71 @@ class Parsing {
     */
     func timeAsFraction(time: String, format: String) -> String {
         var result = ""
-//        print("time: \(time)")
+        print("time: \(time)")
         
-        let timeAsDate = stringToDate(string: time, dateFormat: format)
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.hour, .minute], from: timeAsDate)
-        
-        if let hour = components.hour, let minute = components.minute {
-            var fraction = ""
-            switch minute {
-                case 15:
-                    fraction = "1/4"
-                case 30:
-                    fraction = "1/2"
-                case 45:
-                    fraction = "3/4"
-                default:
-                    fraction = ""
+        if time != "24:00" {
+            let timeAsDate = stringToDate(string: time, dateFormat: format)
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.hour, .minute], from: timeAsDate)
+            
+            if let hour = components.hour, let minute = components.minute {
+                print("hour: \(hour), minute: \(minute)")
+                var fraction = ""
+                switch minute {
+                    case 15:
+                        fraction = "1/4"
+                    case 30:
+                        fraction = "1/2"
+                    case 45:
+                        fraction = "3/4"
+                    default:
+                        fraction = ""
+                    }
+                                        
+                if hour == 0 {
+                    switch fraction {
+                    case "1/4", "3/4":
+                        result = "\(fraction) de hora"
+                    case "1/2":
+                        result = "\(fraction) hora"
+                    default:
+                        break
+                    }
+                } else {
+                    if fraction != "" {
+                        result = "\(hour) \(fraction) horas"
+                    } else {
+                        result = "\(hour) horas"
+                    }
                 }
+            }
+        } else {
+            result = "24 horas"
+        }
+        
+        
+        return result
+    }
+    
+    func timeInFractions(time: String) -> String {
+        var result = ""
+        let hour = time.prefix(2)
+        let minute = time.suffix(2)
+//        if let hour = time.prefix(2), let minute = time.suffix(2) {
+        print("hour: \(hour), minute: \(minute)")
+        var fraction = ""
+        switch minute {
+            case "15":
+                fraction = "1/4"
+            case "30":
+                fraction = "1/2"
+            case "45":
+                fraction = "3/4"
+            default:
+                fraction = ""
+        }
                                     
-            if hour == 0 {
+            if hour == "0" {
                 switch fraction {
                 case "1/4", "3/4":
                     result = "\(fraction) de hora"
@@ -148,9 +194,7 @@ class Parsing {
                     result = "\(hour) horas"
                 }
             }
-
-        }
-        
+//        }
         return result
     }
     

@@ -63,6 +63,8 @@ class MedsTableViewController: UIViewController, UITableViewDataSource, UITableV
 //        cell.detailTextLabel?.text = "\(med.quantity) cada \(med.periodicityInHours) horas."
 
         let timeInFraction = Parsing.shared.timeAsFraction(time: med.periodicityInHours, format: "HH:mm")
+//        let timeInFraction = Parsing.shared.timeInFractions(time: med.periodicityInHours)
+        
         cell.detailTextLabel?.text = "\(med.quantity) cada \(timeInFraction)."
         
         return cell
@@ -74,6 +76,18 @@ class MedsTableViewController: UIViewController, UITableViewDataSource, UITableV
         if editingStyle == .delete {
             // Recuperamos el elemento por medio del indexPath
             let med = self.meds[indexPath.row]
+            print(med.alerts)
+            // Array donde se almacenaran los id's
+            var notifications = [String]()
+            // Recorremos el diccionario de alertas
+            for (_, value) in med.alerts {
+//                print("alert: \(key) - id: \(value)")
+                // Agregamos cada notificacion al array
+                notifications.append(value as! String)
+            }
+            // Removemos las notificaciones del dispositivo
+            UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: notifications)
+            
             // Eliminamos de la base de datos
             DatabaseService.shared.deleteMed(medid: med.medid)
             // Eliminamos el elemento de la estructura de datos

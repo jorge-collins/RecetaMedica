@@ -15,7 +15,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     var med : Med!
     var localeId = Locale.preferredLanguages[0] // Obtenemos el lenguaje seleccionado como principal de la App "es_ES" (que no es lo mismo que el lenguaje del dispositivo)
     var dates = [String]()
-    var status = [Bool]()
+//    var status = [Bool]()
 
     override func viewDidLoad() {
         super.viewDidLoad()        
@@ -27,7 +27,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         
         for item in dictValInc {
             dates.append(item.key)
-            status.append(item.value as! Bool)
+//            status.append(item.value as! Bool)
 
         }
         
@@ -116,13 +116,13 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                 /* Lo de "indicator" esta comentado en lo que resolvemos como programar una alarma y guardar el resultado del -action- presionado en la celdaa
                  */
                 // Sí la toma de medicina sigue pendiente (true)...
-                if status[indexPath.row] {
+                // if status[indexPath.row] {
                     // Lo indicamos con una casilla vacia
                     // cell.accessoryView = UIImageView(image: UIImage(named: "indicator1"))
-                } else {
+                // } else {
                     // Si ya se tomo, lo indicamos con una casilla palomeada
                     // cell.accessoryView = UIImageView(image: UIImage(named: "indicator1_chk"))
-                }
+                // }
                
                 let alarmDate = Parsing.shared.stringToDate(string: dates[indexPath.row], dateFormat: "yyyy-MM-dd HH:mmZ")
                 let alarmValue = Parsing.shared.dateToString(date: alarmDate, localeId: localeId, dateFormat: "H:mm',' dd-MMM-yy")

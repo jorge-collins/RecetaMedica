@@ -21,7 +21,7 @@ class AddMedTableViewController: UITableViewController, UITextFieldDelegate, UIP
     @IBOutlet weak var periodicityInHoursPicker: UIPickerView!
 
     let pickerData:[(myKey: String, myValue: String)] = [
-        ("15 minutos", "00:15"), ("30 minutos", "00:30"), ("45 minutos", "00:45"),
+        ("30 minutos", "00:30"), ("45 minutos", "00:45"),
         ("1 hora", "01:00"), ("1:15 horas", "01:15"), ("1:30 horas", "01:30"), ("1:45 horas", "01:45"),
         ("2 horas", "02:00"), ("2:15 horas", "02:15"), ("2:30 horas", "02:30"), ("2:45 horas", "02:45"),
         ("3 horas", "03:00"), ("3:15 horas", "03:15"), ("3:30 horas", "03:30"), ("3:45 horas", "03:45"),
@@ -165,17 +165,20 @@ class AddMedTableViewController: UITableViewController, UITextFieldDelegate, UIP
             // Inicializamos la variable para comparar si ya se supero la fecha final del tratamiento
             var repeatOneMore = ComparisonResult.orderedAscending
             repeat {
-                // Agregar la newAlert al array de alertas como tipo string
-                let newAlertAsStr = Parsing.shared.dateToString(date: newAlert, localeId: localeId, dateFormat: dateFormat)
-                doseAlerts[newAlertAsStr] = true as AnyObject
-                
+
                 /// Agregar una LocalNotification
                 // Obtenemos la forma como deseamos que se vea la hora
                 let medTime = Parsing.shared.dateToString(date: newAlert, localeId: localeId, dateFormat: "H:mm")
                 // Agregamos la notificación
-                _ = Parsing.shared.setLocalNotification(date: newAlert, title: "\(nameValue) - \(quantityValue)", subtitle: "", body: medTime, badge: 1)
+                let notificationID = Parsing.shared.setLocalNotification(date: newAlert, title: "\(nameValue) - \(quantityValue)", subtitle: "", body: medTime, badge: 1)
                 /// EOF
                 
+                // Convertimos la newAlert como tipo string
+                let newAlertAsStr = Parsing.shared.dateToString(date: newAlert, localeId: localeId, dateFormat: dateFormat)
+                // Agregar la newAlert al array de alertas
+                doseAlerts[newAlertAsStr] = notificationID as AnyObject
+//                doseAlerts[newAlertAsStr] = true as AnyObject
+                                
                 // Agregar las horas y minutos a la ultima fecha
                 if periodicityHs > 0 {
                     newAlert = Calendar.current.date(byAdding: .hour, value: +periodicityHs, to: newAlert)!
@@ -195,6 +198,9 @@ class AddMedTableViewController: UITableViewController, UITextFieldDelegate, UIP
             // Agregamos el medicamento al array de medicamentos de la App
             self.med = Med(medid: "", userid: useridVar!, name: nameValue, type: typeVar, mediaURL: mediaURLVar, daysToTake: daysToTakeValue, firstDose: firstDoseValueVar, periodicityInHours: periodicityInHoursValueVar, quantity: quantityValue, alerts: self.doseAlerts)
 
+            UNUserNotificationCenter.current().getPendingNotificationRequests { (request) in
+                print(request)
+            }
             // Realizamos el unwind para poder realizar operaciones en la vista anterior
             performSegue(withIdentifier: "unwindToMedsTableSegue", sender: self)
 

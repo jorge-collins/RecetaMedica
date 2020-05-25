@@ -44,14 +44,14 @@ class DatabaseService {
         
     func saveMed(userUID: String, type: String, quantity: String, periodicityInHours: String, name: String, mediaURL: String, firstDose: String, daysToTake: String, alerts: Dictionary<String, AnyObject>) {
         
-        var dates = Dictionary<String, Bool>()
-        
-        for alert in alerts.keys {
-            dates[alert] = true
-        }
+//        var dates = Dictionary<String, Bool>()
+//        for alert in alerts.keys {
+//            dates[alert] = true
+//        }
         
         let med : Dictionary<String, AnyObject> = [
-            "alerts": dates as AnyObject,
+//            "alerts": dates as AnyObject,
+            "alerts": alerts as AnyObject,
             "daysToTake": daysToTake as AnyObject,
             "firstDose": firstDose as AnyObject,
             "mediaURL": mediaURL as AnyObject,
