@@ -1,25 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VSg-VI-cBq">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--First View Controller-->
+        <scene sceneID="fvi-Ke-VLU">
+            <objects>
+                <viewController id="VSg-VI-cBq" customClass="FirstViewController" customModule="Receta_Medica" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AlH-Lu-hOF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoRecetaMedica" translatesAutoresizingMaskIntoConstraints="NO" id="aft-zi-iJI">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="aft-zi-iJI" firstAttribute="leading" secondItem="bl1-FO-Vlf" secondAttribute="leading" id="HcF-PL-vwn"/>
+                            <constraint firstItem="aft-zi-iJI" firstAttribute="top" secondItem="AlH-Lu-hOF" secondAttribute="top" id="Xdy-WX-h3X"/>
+                            <constraint firstItem="aft-zi-iJI" firstAttribute="trailing" secondItem="bl1-FO-Vlf" secondAttribute="trailing" id="rvR-2h-52e"/>
+                            <constraint firstAttribute="bottom" secondItem="aft-zi-iJI" secondAttribute="bottom" id="sgf-9O-42e"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bl1-FO-Vlf"/>
+                    </view>
+                    <connections>
+                        <segue destination="lfd-v0-9xg" kind="presentation" identifier="showUserLogged" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="HsQ-cu-qXA"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="showUserNoLogged" modalPresentationStyle="fullScreen" id="a9D-Q4-SIn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="miR-SO-sEY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="147.82608695652175" y="-764.73214285714278"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Receta_Medica" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoRecetaMedica" translatesAutoresizingMaskIntoConstraints="NO" id="LnI-5O-b3o">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receta Médica" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dP-wh-zhQ">
-                                <rect key="frame" x="20" y="20" width="335" height="67"/>
+                                <rect key="frame" x="20" y="64" width="374" height="67"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="48"/>
                                 <color key="textColor" red="0.0" green="0.032321165042580535" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -27,7 +57,7 @@
                                 <size key="shadowOffset" width="2" height="-1"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoRecetaMedica" translatesAutoresizingMaskIntoConstraints="NO" id="cm6-Xl-eb0" customClass="RoundImage" customModule="Receta_Medica" customModuleProvider="target">
-                                <rect key="frame" x="137.5" y="95" width="100" height="100"/>
+                                <rect key="frame" x="157" y="139" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="FRf-NK-F98"/>
                                     <constraint firstAttribute="width" constant="100" id="LcQ-mT-puE"/>
@@ -39,10 +69,10 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="vuz-gn-YcA">
-                                <rect key="frame" x="20" y="265.5" width="335" height="136"/>
+                                <rect key="frame" x="20" y="380" width="374" height="136"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Correo electrónico" textAlignment="center" minimumFontSize="12" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="dZR-SV-Okh" customClass="RoundTextField" customModule="Receta_Medica" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="HF6-gA-qa0"/>
                                         </constraints>
@@ -64,7 +94,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Contraseña" textAlignment="center" minimumFontSize="12" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="sch-xh-Qys" customClass="RoundTextField" customModule="Receta_Medica" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="76" width="335" height="60"/>
+                                        <rect key="frame" x="0.0" y="76" width="374" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="S0X-Mv-hSo"/>
                                         </constraints>
@@ -88,7 +118,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3x-QR-mN2">
-                                <rect key="frame" x="165" y="411.5" width="190" height="30"/>
+                                <rect key="frame" x="204" y="526" width="190" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="T7b-vz-seD"/>
                                 </constraints>
@@ -99,7 +129,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5x-7Y-Jpi">
-                                <rect key="frame" x="20" y="617" width="335" height="30"/>
+                                <rect key="frame" x="20" y="812" width="374" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="IYW-kM-bQS"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="TH5-vA-FrG"/>
@@ -111,7 +141,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2we-5L-IRy" customClass="RoundButton" customModule="Receta_Medica" customModuleProvider="target">
-                                <rect key="frame" x="20" y="481.5" width="335" height="60"/>
+                                <rect key="frame" x="20" y="596" width="374" height="60"/>
                                 <color key="backgroundColor" red="0.39475947620000001" green="0.79834276439999996" blue="0.90199786420000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="h58-p1-0kv"/>
@@ -130,7 +160,7 @@
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="8dr-bV-oDk">
-                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -177,11 +207,11 @@
             <objects>
                 <viewController id="lfd-v0-9xg" customClass="MedsTableViewController" customModule="Receta_Medica" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vDq-ZG-DN8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="his-dY-ynQ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="7W3-5w-fEa"/>
                                 </constraints>
@@ -201,32 +231,32 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="z9v-TS-j2X">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MedCell" textLabel="YXW-9g-vbO" detailTextLabel="7f8-yY-hIn" imageView="PjE-cH-Ks8" rowHeight="100" style="IBUITableViewCellStyleSubtitle" id="kwC-41-tST" customClass="MedTableViewCell" customModule="Receta_Medica" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kwC-41-tST" id="TDc-tY-V6Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YXW-9g-vbO">
-                                                    <rect key="frame" x="130" y="30" width="33.5" height="20.5"/>
+                                                    <rect key="frame" x="135" y="30" width="33.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7f8-yY-hIn">
-                                                    <rect key="frame" x="130" y="53.5" width="44" height="14.5"/>
+                                                    <rect key="frame" x="135" y="53.5" width="44" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="1" id="PjE-cH-Ks8">
-                                                    <rect key="frame" x="15" y="0.0" width="100" height="100"/>
+                                                    <rect key="frame" x="20" y="0.0" width="100" height="100"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -250,6 +280,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="q2W-Fq-Rze"/>
                     </view>
+                    <navigationItem key="navigationItem" id="4HH-Yd-W9g"/>
                     <connections>
                         <outlet property="tableView" destination="z9v-TS-j2X" id="Coo-8T-WPJ"/>
                     </connections>
@@ -263,30 +294,30 @@
             <objects>
                 <tableViewController id="uIa-eF-8GZ" customClass="AddMedTableViewController" customModule="Receta_Medica" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="HaU-cu-oE0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <sections>
                             <tableViewSection id="hUc-Lb-4GF">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="sZD-n2-vuv">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sZD-n2-vuv" id="Zbo-mh-WxZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yMa-nt-ApA">
-                                                    <rect key="frame" x="10" y="13" width="355" height="34.5"/>
+                                                    <rect key="frame" x="10" y="13" width="394" height="34.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medicina:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uG9-LD-Wcw">
-                                                            <rect key="frame" x="0.0" y="0.0" width="102" height="34.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="113.5" height="34.5"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre del medicamento" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="EiW-uq-ZQ7">
-                                                            <rect key="frame" x="110" y="0.0" width="245" height="34.5"/>
+                                                            <rect key="frame" x="121.5" y="0.0" width="272.5" height="34.5"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                                                             <connections>
@@ -307,23 +338,23 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="e1a-2a-75n">
-                                        <rect key="frame" x="0.0" y="88" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="88" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e1a-2a-75n" id="9Z7-dd-2H4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7Ho-uN-0qB">
-                                                    <rect key="frame" x="10" y="13" width="355" height="34"/>
+                                                    <rect key="frame" x="10" y="13" width="394" height="34"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="740" text="Cantidad y medida:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1x2-vR-NMt">
-                                                            <rect key="frame" x="0.0" y="0.0" width="186" height="34"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="208" height="34"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ejemplo: 10 ml" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="mST-NT-YM5">
-                                                            <rect key="frame" x="206" y="0.0" width="149" height="34"/>
+                                                            <rect key="frame" x="228" y="0.0" width="166" height="34"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                                             <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                                             <connections>
@@ -344,14 +375,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="190" id="nsf-1y-1cF">
-                                        <rect key="frame" x="0.0" y="148" width="375" height="190"/>
+                                        <rect key="frame" x="0.0" y="148" width="414" height="190"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nsf-1y-1cF" id="hKE-XX-NaO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="190"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="190"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cada cuanto tiempo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLn-D7-vX5">
-                                                    <rect key="frame" x="10" y="4" width="355" height="22"/>
+                                                    <rect key="frame" x="10" y="4" width="394" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="zfo-Jo-E6Q"/>
                                                     </constraints>
@@ -360,7 +391,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6NA-yU-lGL">
-                                                    <rect key="frame" x="56" y="26" width="263" height="161"/>
+                                                    <rect key="frame" x="60" y="26" width="294" height="161"/>
                                                 </pickerView>
                                             </subviews>
                                             <constraints>
@@ -375,14 +406,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="phM-Ek-wFd">
-                                        <rect key="frame" x="0.0" y="338" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="338" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="phM-Ek-wFd" id="ScZ-85-L75">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Wmf-GT-p6P">
-                                                    <rect key="frame" x="10" y="14" width="355" height="32"/>
+                                                    <rect key="frame" x="10" y="14" width="394" height="32"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Durante cuantos días:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5O-EX-HOH">
                                                             <rect key="frame" x="0.0" y="0.0" width="160" height="32"/>
@@ -391,12 +422,12 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HYl-Ob-k3c">
-                                                            <rect key="frame" x="180" y="0.0" width="61" height="32"/>
+                                                            <rect key="frame" x="180" y="0.0" width="100" height="32"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                         </textField>
                                                         <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="999" translatesAutoresizingMaskIntoConstraints="NO" id="Rba-VI-0aN">
-                                                            <rect key="frame" x="261" y="0.0" width="94" height="32"/>
+                                                            <rect key="frame" x="300" y="0.0" width="94" height="32"/>
                                                             <connections>
                                                                 <action selector="daysToTakeStepper:" destination="uIa-eF-8GZ" eventType="valueChanged" id="0OD-Xt-ufl"/>
                                                             </connections>
@@ -412,20 +443,20 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="190" id="5bB-Ah-xXr">
-                                        <rect key="frame" x="0.0" y="398" width="375" height="190"/>
+                                        <rect key="frame" x="0.0" y="398" width="414" height="190"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5bB-Ah-xXr" id="CRe-dK-XGi">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="190"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="190"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Primera dosis:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOm-Ea-0we">
-                                                    <rect key="frame" x="10" y="4" width="355" height="24"/>
+                                                    <rect key="frame" x="10" y="4" width="394" height="24"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hwh-ck-sBa">
-                                                    <rect key="frame" x="40" y="28" width="295" height="162"/>
+                                                    <rect key="frame" x="40" y="28" width="334" height="162"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="162" id="CQe-X5-Avm"/>
                                                     </constraints>
@@ -446,14 +477,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="CU6-5W-N4d">
-                                        <rect key="frame" x="0.0" y="588" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="588" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CU6-5W-N4d" id="jhb-dV-XwQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJT-UZ-ao4" customClass="RoundButton" customModule="Receta_Medica" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="20" width="343" height="60"/>
+                                                    <rect key="frame" x="20" y="20" width="374" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="X4F-mY-FBb"/>
                                                     </constraints>
@@ -475,7 +506,7 @@
                                                     </connections>
                                                 </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="e65-8p-IVf">
-                                                    <rect key="frame" x="137.5" y="0.0" width="100" height="100"/>
+                                                    <rect key="frame" x="157" y="0.0" width="100" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="pJk-kA-P12"/>
                                                     </constraints>
@@ -530,14 +561,14 @@
             <objects>
                 <viewController id="O5j-Az-3Ig" customClass="SelectIconViewController" customModule="Receta_Medica" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l1a-jL-r8p">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_icons" translatesAutoresizingMaskIntoConstraints="NO" id="b6s-LE-i8G">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecciona una imagen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jqN-ZL-EGo">
-                                <rect key="frame" x="27" y="40" width="321.5" height="42"/>
+                                <rect key="frame" x="46.5" y="40" width="321.5" height="42"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -545,7 +576,7 @@
                                 <size key="shadowOffset" width="2" height="-1"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="iVn-hH-wdy">
-                                <rect key="frame" x="62.5" y="142" width="250" height="70"/>
+                                <rect key="frame" x="82" y="142" width="250" height="70"/>
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CxY-3O-Xb7">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
@@ -604,7 +635,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wyi-hI-KXG">
-                                <rect key="frame" x="62.5" y="232" width="250" height="70"/>
+                                <rect key="frame" x="82" y="232" width="250" height="70"/>
                                 <subviews>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ps6-mv-udh">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
@@ -663,7 +694,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="oVy-VH-SE8">
-                                <rect key="frame" x="62.5" y="322" width="250" height="70"/>
+                                <rect key="frame" x="82" y="322" width="250" height="70"/>
                                 <subviews>
                                     <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRK-JO-jM3">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
@@ -722,7 +753,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NAr-6k-Bi4" customClass="RoundButton" customModule="Receta_Medica" customModuleProvider="target">
-                                <rect key="frame" x="40" y="472" width="295" height="60"/>
+                                <rect key="frame" x="40" y="472" width="334" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="443-8M-jRH"/>
                                 </constraints>
@@ -778,14 +809,14 @@
             <objects>
                 <viewController id="Ppr-W0-YU7" customClass="RegisterViewController" customModule="Receta_Medica" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3nB-u7-9Hr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoRecetaMedica" translatesAutoresizingMaskIntoConstraints="NO" id="6XU-1r-227">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pxg-fL-VU9">
-                                <rect key="frame" x="20" y="597" width="335" height="30"/>
+                                <rect key="frame" x="20" y="758" width="374" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Ox7-xL-AtS"/>
                                 </constraints>
@@ -796,7 +827,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtN-Xv-RlR" customClass="RoundButton" customModule="Receta_Medica" customModuleProvider="target">
-                                <rect key="frame" x="20" y="456" width="335" height="60"/>
+                                <rect key="frame" x="20" y="456" width="374" height="60"/>
                                 <color key="backgroundColor" red="0.39475947620000001" green="0.79834276439999996" blue="0.90199786420000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="PoZ-pu-pMV"/>
@@ -816,7 +847,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registra una cuenta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eku-0T-PGx">
-                                <rect key="frame" x="43" y="27" width="289" height="45"/>
+                                <rect key="frame" x="62.5" y="27" width="289" height="45"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="32"/>
                                 <color key="textColor" red="0.0" green="0.032321165040000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -824,10 +855,10 @@
                                 <size key="shadowOffset" width="2" height="-1"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5gw-gx-t5E">
-                                <rect key="frame" x="20" y="152" width="335" height="264"/>
+                                <rect key="frame" x="20" y="152" width="374" height="264"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Nombre(s)" textAlignment="center" minimumFontSize="12" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="UC3-GO-8NN" customClass="RoundTextField" customModule="Receta_Medica" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="XRu-5J-6FO"/>
                                         </constraints>
@@ -849,7 +880,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Apellido(s)" textAlignment="center" minimumFontSize="12" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="PfC-In-EKs" customClass="RoundTextField" customModule="Receta_Medica" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="68" width="335" height="60"/>
+                                        <rect key="frame" x="0.0" y="68" width="374" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="xGH-Tv-XQE"/>
                                         </constraints>
@@ -871,7 +902,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Correo electrónico" textAlignment="center" minimumFontSize="12" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="tOb-jX-71y" customClass="RoundTextField" customModule="Receta_Medica" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="136" width="335" height="60"/>
+                                        <rect key="frame" x="0.0" y="136" width="374" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="Ft1-0G-loT"/>
                                         </constraints>
@@ -893,7 +924,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Contraseña" textAlignment="center" minimumFontSize="12" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="YLw-Gd-l0k" customClass="RoundTextField" customModule="Receta_Medica" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="204" width="335" height="60"/>
+                                        <rect key="frame" x="0.0" y="204" width="374" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="mE1-wk-8Qa"/>
                                         </constraints>
@@ -917,7 +948,7 @@
                                 </subviews>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="TIH-z5-9OB">
-                                <rect key="frame" x="169" y="305" width="37" height="37"/>
+                                <rect key="frame" x="188.5" y="402.5" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -959,38 +990,38 @@
             <objects>
                 <viewController id="ptu-S3-NMQ" customClass="DetailViewController" customModule="Receta_Medica" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0lD-UJ-BrU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="8" translatesAutoresizingMaskIntoConstraints="NO" id="wbW-q2-t8P">
-                                <rect key="frame" x="87.5" y="447" width="200" height="200"/>
+                                <rect key="frame" x="107" y="608" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Ya1-HS-jQc"/>
                                     <constraint firstAttribute="height" constant="200" id="hI2-SZ-R0C"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="J8P-DC-5bU">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="447"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="608"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DetailCell" id="xxq-lb-kjW" customClass="DetailViewCell" customModule="Receta_Medica" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="65.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="65.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xxq-lb-kjW" id="kNV-92-8xo">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="65.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="65.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LAG-p4-Qra">
-                                                    <rect key="frame" x="20" y="20" width="335" height="25.5"/>
+                                                    <rect key="frame" x="20" y="20" width="374" height="25.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="261" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7xn-QA-lPP">
-                                                            <rect key="frame" x="0.0" y="0.0" width="126" height="25.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="141" height="25.5"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L39-wY-OBA">
-                                                            <rect key="frame" x="134" y="0.0" width="201" height="25.5"/>
+                                                            <rect key="frame" x="149" y="0.0" width="225" height="25.5"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1020,7 +1051,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s32-QV-uYN" customClass="RoundButton" customModule="Receta_Medica" customModuleProvider="target">
-                                <rect key="frame" x="40" y="527" width="295" height="60"/>
+                                <rect key="frame" x="40" y="688" width="334" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="ApE-FJ-VSm"/>
                                 </constraints>
@@ -1071,7 +1102,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OyH-tn-TB7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="42m-9G-TEl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1084,6 +1115,9 @@
             <point key="canvasLocation" x="1962" y="-675"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="HsQ-cu-qXA"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="1" width="200" height="200"/>
         <image name="2" width="200" height="200"/>

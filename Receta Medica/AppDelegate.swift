@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Recibir Push Notifications en el Simulador - EOF
         
         // Reseteamos la cuenta de notificaciones al iniciar la App
-        UIApplication.shared.applicationIconBadgeNumber = 0
+//        UIApplication.shared.applicationIconBadgeNumber = 0
         
         return true
     }

@@ -46,10 +46,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         /*
          
          
-         Guardar las LocalNotificationIdentifiers en algun lado para poderlos borrar posteriormente.
-         
-         
          Buscar como hacer lo de la verificacion del login antes de que se muestre el view.
+         
          
          Solucionar lo de sumarle 1 al numero de badges, en lugar de asignarle un numero aleatorio. Tambien falta saber cuando y como "limpiar" las badges.
          
@@ -57,45 +55,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    
-    override func viewDidAppear(_ animated: Bool) {
-        let currentUser = Auth.auth().currentUser
-
-        // Vigilamos la condicion para continuar, en caso contrario se realiza lo indicado en su "else"
-        guard currentUser != nil else {
-            return
-        }
-
-        // Recuperamos de la DB los datos del usuario autorizado
-        DatabaseService.shared.userRef.observeSingleEvent(of: .value) { (snapshot) in
-//            print("snapshot: \(snapshot)")
-            if let users = snapshot.value as? Dictionary<String, AnyObject> {
-                for (key, value) in users {
-//                    print("key: \(key)")
-                    if currentUser?.uid == key {
-
-                        if let profile = value as? Dictionary<String, AnyObject> {
-//                            print("profile: \(profile)")
-                            if let dict = profile["profile"] as? Dictionary<String, AnyObject> {
-//                                print("dict: \(dict)")
-                                if let firstName = dict["firstName"] as? String, let lastName = dict["lastName"] as? String,
-                                   let emailTo     = dict["email"] as? String,     let password = dict["password"] as? String {
-                                    
-                                    let userid = key
-                                    // le asignamos los datos recuperados al usuario que se enviara en el segue
-                                    self.user = User(userid: userid, email: emailTo, firstName: firstName, lastName: lastName, password: password)
-                                    // Ejecutamos el segue
-                                    self.performSegue(withIdentifier: "showMedsViewController", sender: self)
-                                }
-                            }
-                        }
-
-                    }
-                }
-            }
-        }
-        // print("Quedamos afuera del guard")
-    }
     
     override var prefersStatusBarHidden: Bool {
         return true
