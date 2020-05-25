@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class AddMedTableViewController: UITableViewController, UITextFieldDelegate {
+class AddMedTableViewController: UITableViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var nameTextField: UITextField!
     
@@ -17,7 +17,37 @@ class AddMedTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var quantityTextField: UITextField!
     
     var periodicityInHoursValueVar = ""
-    @IBOutlet weak var periodicityInHoursDatePicker: UIDatePicker!
+//    @IBOutlet weak var periodicityInHoursDatePicker: UIDatePicker!
+    @IBOutlet weak var periodicityInHoursPicker: UIPickerView!
+
+    let pickerData:[(myKey: String, myValue: String)] = [
+        ("15 minutos", "00:15"), ("30 minutos", "00:30"), ("45 minutos", "00:45"),
+        ("1 hora", "01:00"), ("1:15 horas", "01:15"), ("1:30 horas", "01:30"), ("1:45 horas", "01:45"),
+        ("2 horas", "02:00"), ("2:15 horas", "02:15"), ("2:30 horas", "02:30"), ("2:45 horas", "02:45"),
+        ("3 horas", "03:00"), ("3:15 horas", "03:15"), ("3:30 horas", "03:30"), ("3:45 horas", "03:45"),
+        ("4 horas", "04:00"), ("4:15 horas", "04:15"), ("4:30 horas", "04:30"), ("4:45 horas", "04:45"),
+        ("5 horas", "05:00"), ("5:15 horas", "05:15"), ("5:30 horas", "05:30"), ("5:45 horas", "05:45"),
+        ("6 horas", "06:00"), ("6:15 horas", "06:15"), ("6:30 horas", "06:30"), ("6:45 horas", "06:45"),
+        ("7 horas", "07:00"), ("7:15 horas", "07:15"), ("7:30 horas", "07:30"), ("7:45 horas", "07:45"),
+        ("8 horas", "08:00"), ("8:15 horas", "08:15"), ("8:30 horas", "08:30"), ("8:45 horas", "08:45"),
+        ("9 horas", "09:00"), ("9:15 horas", "09:15"), ("9:30 horas", "09:30"), ("9:45 horas", "09:45"),
+        ("10 horas", "10:00"), ("10:15 horas", "10:15"), ("10:30 horas", "10:30"), ("10:45 horas", "10:45"),
+        ("11 horas", "11:00"), ("11:15 horas", "11:15"), ("11:30 horas", "11:30"), ("11:45 horas", "11:45"),
+        ("12 horas", "12:00"), ("12:15 horas", "12:15"), ("12:30 horas", "12:30"), ("12:45 horas", "12:45"),
+        ("13 horas", "13:00"), ("13:15 horas", "13:15"), ("13:30 horas", "13:30"), ("13:45 horas", "13:45"),
+        ("14 horas", "14:00"), ("14:15 horas", "14:15"), ("14:30 horas", "14:30"), ("14:45 horas", "14:45"),
+        ("15 horas", "15:00"), ("15:15 horas", "15:15"), ("15:30 horas", "15:30"), ("15:45 horas", "15:45"),
+        ("16 horas", "16:00"), ("16:15 horas", "16:15"), ("16:30 horas", "16:30"), ("16:45 horas", "16:45"),
+        ("17 horas", "17:00"), ("17:15 horas", "17:15"), ("17:30 horas", "17:30"), ("17:45 horas", "17:45"),
+        ("18 horas", "18:00"), ("18:15 horas", "18:15"), ("18:30 horas", "18:30"), ("18:45 horas", "18:45"),
+        ("19 horas", "19:00"), ("19:15 horas", "19:15"), ("19:30 horas", "19:30"), ("19:45 horas", "19:45"),
+        ("20 horas", "20:00"), ("20:15 horas", "20:15"), ("20:30 horas", "20:30"), ("20:45 horas", "20:45"),
+        ("21 horas", "21:00"), ("21:15 horas", "21:15"), ("21:30 horas", "21:30"), ("21:45 horas", "21:45"),
+        ("22 horas", "22:00"), ("22:15 horas", "22:15"), ("22:30 horas", "22:30"), ("22:45 horas", "22:45"),
+        ("23 horas", "23:00"), ("23:15 horas", "23:15"), ("23:30 horas", "23:30"), ("23:45 horas", "23:45"),
+        ("24 horas", "24:00")
+    ]
+    
     
     @IBOutlet weak var daysToTakeTextField: UITextField!
     
@@ -40,35 +70,21 @@ class AddMedTableViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.periodicityInHoursPicker.delegate = self
+        self.periodicityInHoursPicker.dataSource = self
         self.tableView.delegate = self
         self.tableView.dataSource = self
         navigationController?.navigationBar.prefersLargeTitles = true
                 
-        periodicityInHoursValueVar = getValueDatePicker(dateFormat: "HH:mm", datePicker: periodicityInHoursDatePicker)
-        
+        periodicityInHoursPicker.selectRow(15, inComponent: 0, animated: true)
+        periodicityInHoursValueVar = pickerData[15].myValue
+        print("periodicityInHoursValueVar: \(periodicityInHoursValueVar)")
+
         daysToTakeTextField.isUserInteractionEnabled = false
         
         firstDoseValueVar = getValueDatePicker(dateFormat: dateFormat, datePicker: firstDoseDatePicker)
-        
-        // Codigo para corregir parcialmente el malfuncionamiento del UIDatePicker:
-        // Si indicas 00:00, te manda al siguiente valor minimo, lo cual provoca que el siguiente valor indicado por el usuario no sea tomado en cuenta.
-        let dateComp : NSDateComponents = NSDateComponents()
-        dateComp.hour = 1
-        dateComp.minute = 0
-        dateComp.timeZone = NSTimeZone.system
-        let calendar : NSCalendar = NSCalendar(calendarIdentifier: .gregorian)!
-        let dateC : Date = calendar.date(from: dateComp as DateComponents)! as Date
-        DispatchQueue.main.async {
-            self.periodicityInHoursDatePicker.setDate(dateC, animated: false)
-        }
-        // Aqui termina el parche...
+
     }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        periodicityInHoursDatePicker.countDownDuration = 60
-//    }
-    
-    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Para deseleccionar el renglon de la tabla
@@ -92,11 +108,22 @@ class AddMedTableViewController: UITableViewController, UITextFieldDelegate {
         return 6
     }
 
-    @IBAction func periodicityInHoursDatePicker(_ sender: Any) {
-        periodicityInHoursValueVar = getValueDatePicker(dateFormat: "HH:mm", datePicker: periodicityInHoursDatePicker)
-        print("periodicityInHoursValueVar: \(periodicityInHoursValueVar)")
-
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row].myKey
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        periodicityInHoursValueVar = pickerData[row].myValue
+    }
+    
+    
     
     @IBAction func daysToTakeStepper(_ sender: UIStepper) {
         let quantity = Int(sender.value)
